@@ -1,19 +1,27 @@
 console.log(combination.jeff);
-var pos;
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-    pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-        
-      }
-      
-    }
-    )};
+var long ="";
+var lat ="";
 
-google.maps.event.addDomListener(window, 'load', init);
-        
-function init() {
+if (navigator.geolocation) {
+    var pos;
+    navigator.geolocation.getCurrentPosition(function(position) {
+    this.pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,       
+      }
+      console.log(pos.lat);
+      long = pos.long;
+      lat = pos.lat;
+      init(this.pos);
+    }
+    )
+   
+};
+
+
+
+
+function init(pos) {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
     var mapOptions = {
