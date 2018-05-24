@@ -1,9 +1,9 @@
-// var combination = {
-// 	jeff: [8, 7, 5],
-// 	chatura: [0, 1, 1],
-// 	dan: [0, 0, 1],
-// 	anthony: [9, 9, 0],
-// };
+var combination = {
+	jeff: [8, 7, 5],
+	chatura: [0, 1, 1],
+	dan: [0, 0, 1],
+	anthony: [9, 9, 0],
+};
 
 
 $(function () {
@@ -63,37 +63,37 @@ $(function () {
 			}
 
 			//do the call here to compare the combo array for login in
-			userKey = comboArray;
+			// userKey = comboArray;
 
-			var validKey = checkKeys();
-			console.log("Key is " + userKey + "Validity" + validKey );
-			if(validKey == true)
-			{
-				doMap();
-			}
-			else
-			{
-				console.log("Not Valid Key");
-			}
-
-			// for (var key in combination) {
-			// 	if (comboArray == "" + combination[key]) {
-			// 		$('.locker-dial ul').draggable('disable');
-			// 		$('#locker-wrapper').addClass("unlocked");
-			// 		$('.locker-dial').each(function () {
-			// 			var $this = $(this);
-			// 			$this.find('ul').delay(400).css('color', '#0f0').fadeOut(function () {
-			// 				$this.animate({
-			// 					marginTop: 150
-			// 				}, function () {
-			// 					$this.fadeOut(function () {
-			// 						// $('.welcome-message').fadeIn();
-			// 					});
-			// 				});
-			// 			});
-			// 		});
-			// 	}
+			// var validKey = checkKeys();
+			// console.log("Key is " + userKey + "Validity" + validKey );
+			// if(validKey == true)
+			// {
+			// 	doMap();
 			// }
+			// else
+			// {
+			// 	console.log("Not Valid Key");
+			// }
+
+			for (var key in combination) {
+				if (comboArray == "" + combination[key]) {
+					$('.locker-dial ul').draggable('disable');
+					$('#locker-wrapper').addClass("unlocked");
+					$('.locker-dial').each(function () {
+						var $this = $(this);
+						$this.find('ul').delay(400).css('color', '#0f0').fadeOut(function () {
+							$this.animate({
+								marginTop: 150
+							}, function () {
+								$this.fadeOut(function () {
+									changeToLockerContent();
+								});
+							});
+						});
+					});
+				}
+			}
 		}
 	});
 
