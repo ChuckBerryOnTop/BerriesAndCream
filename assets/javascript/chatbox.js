@@ -27,7 +27,7 @@ database.ref().on('child_added', function (snapshot) {
     console.log(snapshot.val());
     var message = snapshot.val();
     $(".main-screen").append(`<div class="row">${message.liveText}</div>`);
-
+ 
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
