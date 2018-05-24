@@ -73,9 +73,8 @@ $(function(){
 						$this.animate({
 							marginTop: 150
 						}, function(){
-							$this.fadeOut(function(){
-								// $('.welcome-message').fadeIn();
-							});
+							$(".main-area").empty();
+							loadCommentBox();
 						});
 					});
 				});
