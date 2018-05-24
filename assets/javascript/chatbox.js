@@ -1,23 +1,23 @@
-var config = {
-    apiKey: "AIzaSyCwYeFUirtuvo1lFjm2ATD3zxlWI1pmHBo",
-    authDomain: "jeff-project-26325.firebaseapp.com",
-    databaseURL: "https://jeff-project-26325.firebaseio.com",
-    projectId: "jeff-project-26325",
-    storageBucket: "jeff-project-26325.appspot.com",
-    messagingSenderId: "574387886586"
-};
-firebase.initializeApp(config);
+// var config2 = {
+//     apiKey: "AIzaSyCwYeFUirtuvo1lFjm2ATD3zxlWI1pmHBo",
+//     authDomain: "jeff-project-26325.firebaseapp.com",
+//     databaseURL: "https://jeff-project-26325.firebaseio.com",
+//     projectId: "jeff-project-26325",
+//     storageBucket: "jeff-project-26325.appspot.com",
+//     messagingSenderId: "574387886586"
+// };
+// firebase.initializeApp(config2);
 
-var database = firebase.database();
+// var database = firebase.database();
 
-
+doMap();
 
 $("#submission").on("click", function (event) {
     event.preventDefault();
     var textData = $("#text-input").val().trim();
     $("#text-input").val("");
 
-    database.ref().push({
+    database.ref("/" + userKey + "-user").push({
         liveText: textData,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });

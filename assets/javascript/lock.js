@@ -1,10 +1,3 @@
-var combination = {
-	jeff: [8, 7, 5],
-	chatura: [0, 1, 1],
-	dan: [0, 0, 1],
-	anthony: [9, 9, 0],
-};
-
 
 $(function () {
 	var gridIncrement = $(".locker-dial ul").css('line-height').replace('px', '') / 2;
@@ -65,9 +58,7 @@ $(function () {
 			//do the call here to compare the combo array for login in
 
 			userKey = comboArray[0]+""+comboArray[1]+""+comboArray[2];
-
-			var validKey = checkKeys();
-			console.log("Key is " + userKey + "Validity" + validKey );
+			checkKeys();
 			
 			
 

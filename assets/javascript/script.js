@@ -1,4 +1,4 @@
-console.log(combination.jeff);
+
 
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
@@ -20,14 +20,15 @@ function checkKeys() {
                 lat = tempPos[0].lat;
             }
             validKey = true;
-            ;
+            
         }
         if (tempPos.length <= 0) {
             validKey = false;
         }
 
         if (validKey == true) {
-            doMap();
+           localStorage.setItem("user",JSON.stringify(tempPos));
+           changeToLockerContent();
         }
         else {
             console.log("Not Valid Key");
@@ -39,6 +40,18 @@ function checkKeys() {
 }
 
 function doMap() {
+    var storageUser = JSON.parse(localStorage.getItem("user"));
+    if((typeof  storageUser.lng != "undefined")||(typeof  storageUser.lat != "undefined"))
+    {
+     long = storageUser.lng;
+     lat = storageUser.lat;
+     userKey =  storageUser.user;
+    }
+    else{
+        long = "";
+        lat = "";      
+    }
+
     if (runOnce == false) {
         if (long == "") {
             if (navigator.geolocation) {
@@ -64,6 +77,7 @@ function doMap() {
             this.pos = {
                 lat: lat,
                 lng: long,
+                user: userKey
             }
             sendData = false;
             init(this.pos);
@@ -102,6 +116,7 @@ function init(pos) {
                 userCord: JSON.stringify(pos)
             }
         );
+        localStorage.setItem("user",JSON.stringify(pos));
     }
     // Get the HTML DOM element that will contain your map 
     // We are using a div with id="map" seen below in the <body>
