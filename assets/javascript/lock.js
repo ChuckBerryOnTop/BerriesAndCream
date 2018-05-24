@@ -63,18 +63,12 @@ $(function () {
 			}
 
 			//do the call here to compare the combo array for login in
-			userKey = comboArray;
+			userKey = comboArray[0]+""+comboArray[1]+""+comboArray[2];
 
 			var validKey = checkKeys();
 			console.log("Key is " + userKey + "Validity" + validKey );
-			if(validKey == true)
-			{
-				doMap();
-			}
-			else
-			{
-				console.log("Not Valid Key");
-			}
+			
+			
 
 			// for (var key in combination) {
 			// 	if (comboArray == "" + combination[key]) {
