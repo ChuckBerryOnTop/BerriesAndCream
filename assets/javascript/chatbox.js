@@ -1,4 +1,4 @@
-var config = {
+var config2 = {
     apiKey: "AIzaSyCwYeFUirtuvo1lFjm2ATD3zxlWI1pmHBo",
     authDomain: "jeff-project-26325.firebaseapp.com",
     databaseURL: "https://jeff-project-26325.firebaseio.com",
@@ -6,9 +6,9 @@ var config = {
     storageBucket: "jeff-project-26325.appspot.com",
     messagingSenderId: "574387886586"
 };
-firebase.initializeApp(config);
+var secondary = firebase.initializeApp(config2, "secondary");
 
-var database = firebase.database();
+var seconddatabase = secondary.database();
 
 
 
@@ -17,13 +17,13 @@ $("#submission").on("click", function (event) {
     var textData = $("#text-input").val().trim();
     $("#text-input").val("");
 
-    database.ref().push({
+    seconddatabase.ref().push({
         liveText: textData,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 });
 
-database.ref().on('child_added', function (snapshot) {
+seconddatabase.ref().on('child_added', function (snapshot) {
     console.log(snapshot.val());
     var message = snapshot.val();
     $(".main-screen").append(`<div class="row">${message.liveText}</div>`);
@@ -33,7 +33,7 @@ database.ref().on('child_added', function (snapshot) {
 });
 
 $("#reset").on("click", function (event) {
-    database.ref().remove();
+    seconddatabase.ref().remove();
 });
 
 // function loadCommentBox (){
