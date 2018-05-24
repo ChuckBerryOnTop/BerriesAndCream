@@ -17,16 +17,23 @@
     <div class="main-area container">
         <div class="row" id="map">
         </div>
-        <form>
-            <div class="row main-screen">
-            </div>
+        <div class="row" id="locker-plate">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="row main-screen" id="text-box"></div>
+        </div>
+        <form class="row">
             <div class="form-group row">
                 <input class="form-control" id="text-input" type="text" placeholder="Type here...">
                 <button class="btn-floating btn-large waves-effect waves-light" id="submission" type="submit">Submit</button>
                 <button class="btn-floating btn-large waves-effect waves-light" id="reset">Reset</button>
             </div>
         </form>
-    </div>
+    </div>    
+    
+    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
