@@ -1,5 +1,4 @@
 //Sets up all the Global Variables and Init
-
 var long = "";
 var lat = "";
 var userKey = ""; 
@@ -16,6 +15,7 @@ var config = {
 
 firebase.initializeApp(config);
 var database = firebase.database();
+
 var refs;
 var resultArray;
 refs = database;

@@ -1,28 +1,38 @@
 console.log(combination.jeff);
 
 function checkKeys() {
-    refs.ref("/" + userKey).once("value", function (snapshot) {
+    refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
         resultArray = snapshot.val();
+        if (resultArray == null) {
+            return false;
+        }
         console.log("Result Array : " + resultArray);
         var child = snapshot.child;
         console.log(child);
         var tempPos = [];
-        snapshot.forEach(function (entry) {
-            console.log(entry.val().userCord);
-            tempPos.push(JSON.parse(entry.val().userCord));
-        });
-        if (tempPos.length > 0) {
-            tempPos.forEach(function (entry) {
-                if (userKey == entry.user) {
-                    long = entry.lng;
-                    lat = entry.lat;
-                }
-            });
-           return true; 
+        console.log(snapshot.val().userCord);
+        tempPos.push(JSON.parse(snapshot.val().userCord));
+
+        if (tempPos.length == 1) {
+            (userKey == tempPos[0].user)
+            {
+                long = tempPos[0].lng;
+                lat = tempPos[0].lat;
+            }
+            validKey = true;
+            ;
         }
         if (tempPos.length <= 0) {
-            return false;
-        }s
+            validKey = false;
+        }
+
+        if (validKey == true) {
+            doMap();
+        }
+        else {
+            console.log("Not Valid Key");
+        }
+
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
@@ -86,7 +96,7 @@ function init(pos) {
     };
 
     if (sendData) {
-        var vari = pos.user;
+        var vari = pos.user + "-user";
         database.ref("/" + vari).set(
             {
                 userCord: JSON.stringify(pos)
