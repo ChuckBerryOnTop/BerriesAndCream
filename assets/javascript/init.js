@@ -21,3 +21,8 @@ var resultArray;
 refs = database;
 var runOnce = false;
 var sendData = false;
+
+function changeToLockerContent(){
+    window.location.href = "lockerContents.html";
+  } 
+  
