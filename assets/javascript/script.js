@@ -18,12 +18,14 @@ var resultArray;
 
 refs = database;
 var runOnce = false;
-refs.ref().on("value", function (snapshot) 
+refs.ref("/"+userKey).on("value", function (snapshot) 
 {
     resultArray = snapshot.val();
+    console.log("Result Array"+resultArray);
     var child = snapshot.child;
     console.log(child);
     var tempPos = [];
+
     snapshot.forEach(function (entry) {
         console.log(entry.val().userCord);
         tempPos.push(JSON.parse(entry.val().userCord));
@@ -102,7 +104,8 @@ function init(pos) {
     };
 
     if (sendData) {
-        database.ref().push({
+        var vari = pos.user;
+        database.ref("/" + vari).push({
             userCord: JSON.stringify(pos)
         });
     }
