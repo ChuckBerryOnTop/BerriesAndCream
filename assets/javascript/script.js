@@ -1,51 +1,33 @@
 console.log(combination.jeff);
-var long = "";
-var lat = "";
-var userKey =prompt("Please enter your name");;
-var config = {
-    apiKey: "AIzaSyDI1LtXpqUCshBIBSmJLdzfp1UFNRT5bfY",
-    authDomain: "chuckberrydropoff.firebaseapp.com",
-    databaseURL: "https://chuckberrydropoff.firebaseio.com",
-    projectId: "chuckberrydropoff",
-    storageBucket: "",
-    messagingSenderId: "510478001598"
-};
 
-firebase.initializeApp(config);
-var database = firebase.database();
-var refs;
-var resultArray;
-
-refs = database;
-var runOnce = false;
-refs.ref("/"+userKey).on("value", function (snapshot) 
-{
-    resultArray = snapshot.val();
-    console.log("Result Array"+resultArray);
-    var child = snapshot.child;
-    console.log(child);
-    var tempPos = [];
-
-    snapshot.forEach(function (entry) {
-        console.log(entry.val().userCord);
-        tempPos.push(JSON.parse(entry.val().userCord));
-    });
-    if (tempPos.length > 0) {
-        tempPos.forEach(function (entry) {
-            if(userKey == entry.user)
-            {
-              long = entry.lng;
-              lat = entry.lat;
-            }
+function checkKeys() {
+    refs.ref("/" + userKey).once("value", function (snapshot) {
+        resultArray = snapshot.val();
+        console.log("Result Array : " + resultArray);
+        var child = snapshot.child;
+        console.log(child);
+        var tempPos = [];
+        snapshot.forEach(function (entry) {
+            console.log(entry.val().userCord);
+            tempPos.push(JSON.parse(entry.val().userCord));
         });
-    }
-    doMap()
-}, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-});
+        if (tempPos.length > 0) {
+            tempPos.forEach(function (entry) {
+                if (userKey == entry.user) {
+                    long = entry.lng;
+                    lat = entry.lat;
+                }
+            });
+           return true; 
+        }
+        if (tempPos.length <= 0) {
+            return false;
+        }s
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
+}
 
-
-var sendData = false;
 function doMap() {
     if (runOnce == false) {
         if (long == "") {
@@ -94,10 +76,10 @@ function init(pos) {
         center: new google.maps.LatLng(pos.lat, pos.lng), // New York
 
         mapTypeControl: true,
-         mapTypeControlOptions: {
-           style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-           mapTypeIds: ['roadmap', 'terrain', 'satellite', 'hybrid']
-         },
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            mapTypeIds: ['roadmap', 'terrain', 'satellite', 'hybrid']
+        },
         // How you would like to style the map. 
         // This is where you would paste any style found on Snazzy Maps.
         styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }]
@@ -105,9 +87,11 @@ function init(pos) {
 
     if (sendData) {
         var vari = pos.user;
-        database.ref("/" + vari).push({
-            userCord: JSON.stringify(pos)
-        });
+        database.ref("/" + vari).set(
+            {
+                userCord: JSON.stringify(pos)
+            }
+        );
     }
     // Get the HTML DOM element that will contain your map 
     // We are using a div with id="map" seen below in the <body>
