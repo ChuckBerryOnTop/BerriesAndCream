@@ -25,36 +25,35 @@ function addToDb(UserKeyArr,doRefresh=false)
       });
 }
 
-function validateAdminKey(KeyEntered,userArr)
+function validateAdminKey(userArr)
 {
     refs.ref("/" + "addCode" + "User").once("value", function (snapshot) {
         var result= snapshot.val();
-        if(this.KeyEntered === result)
+        if($("#adminKey").val() === result)
         {
             addToDb(userArr);
         }
        
     });
 }
-
+var userKeyArr = [];
+var KeyToCheck ;
 $("form").submit(function () {
     event.preventDefault();
     var index0 = $("#1").val();
     var index1 = $("#2").val();
     var index2 = $("#3").val();
 
-    var KeyToCheck = $("#adminKey").val();
+    KeyToCheck = $("#adminKey").val();
     console.log(index0);
     console.log(index1);
     console.log(index2);
-
-    var userKeyArr = [];
 
     userKeyArr.push(index0);
     userKeyArr.push(index1);
     userKeyArr.push(index2);
 
-    validateAdminKey(KeyToCheck ,userKeyArr);
+    validateAdminKey(userKeyArr);
     
 });
 
