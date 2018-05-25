@@ -162,7 +162,7 @@ function init(pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent('Your (Drop off) point');
         infoWindow.open(map);
-        map.setCenter(marker);
+        map.setCenter(marker.position);
 
         $( "#mapDirection" ).click(function()
          {
@@ -190,7 +190,7 @@ function displayDirectionRoute(mapElement, mapOptions)
             displayRoute(new google.maps.LatLng(currentPos.lat, currentPos.lng), mapOptions.center, directionsService, directionsDisplay);
             directionsDisplay.addListener('directions_changed', function () {
                 computeTotalDistance(directionsDisplay.getDirections());
-                return;
+               
             });
         })
 
@@ -230,4 +230,5 @@ function computeTotalDistance(result) {
     }
     total = total / 1000;
     document.getElementById('total').innerHTML = total + ' km';
+
 }
