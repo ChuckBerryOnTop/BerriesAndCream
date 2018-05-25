@@ -27,7 +27,13 @@ function checkKeys() {
         }
 
         if (validKey == true) {
-           localStorage.setItem("user",JSON.stringify(tempPos));
+     
+            this.pos = {
+                lat: tempPos[0].lat,
+                lng: tempPos[0].lng,
+                user: tempPos[0].user
+            }
+           localStorage.setItem("user",JSON.stringify(pos));
            changeToLockerContent();
         }
         else {

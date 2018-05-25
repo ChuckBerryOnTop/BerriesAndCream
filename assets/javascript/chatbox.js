@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-// var config2 = {
-//     apiKey: "AIzaSyCwYeFUirtuvo1lFjm2ATD3zxlWI1pmHBo",
-//     authDomain: "jeff-project-26325.firebaseapp.com",
-//     databaseURL: "https://jeff-project-26325.firebaseio.com",
-//     projectId: "jeff-project-26325",
-//     storageBucket: "jeff-project-26325.appspot.com",
-//     messagingSenderId: "574387886586"
-// };
-// firebase.initializeApp(config2);
-=======
 var config2 = {
     apiKey: "AIzaSyCwYeFUirtuvo1lFjm2ATD3zxlWI1pmHBo",
     authDomain: "jeff-project-26325.firebaseapp.com",
@@ -20,7 +9,6 @@ var config2 = {
 var secondary = firebase.initializeApp(config2, "secondary");
 
 var seconddatabase = secondary.database();
->>>>>>> origin/jeffreylee
 
 // var database = firebase.database();
 
@@ -31,11 +19,7 @@ $("#submission").on("click", function (event) {
     var textData = $("#text-input").val().trim();
     $("#text-input").val("");
 
-<<<<<<< HEAD
-    database.ref("/" + userKey + "-user").push({
-=======
     seconddatabase.ref().push({
->>>>>>> origin/jeffreylee
         liveText: textData,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
