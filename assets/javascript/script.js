@@ -1,34 +1,63 @@
-console.log(combination.jeff);
+
 
 function checkKeys() {
-    refs.ref("/" + userKey).once("value", function (snapshot) {
+    refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
         resultArray = snapshot.val();
+        if (resultArray == null) {
+            return false;
+        }
         console.log("Result Array : " + resultArray);
         var child = snapshot.child;
         console.log(child);
         var tempPos = [];
-        snapshot.forEach(function (entry) {
-            console.log(entry.val().userCord);
-            tempPos.push(JSON.parse(entry.val().userCord));
-        });
-        if (tempPos.length > 0) {
-            tempPos.forEach(function (entry) {
-                if (userKey == entry.user) {
-                    long = entry.lng;
-                    lat = entry.lat;
-                }
-            });
-           return true; 
+        console.log(snapshot.val().userCord);
+        tempPos.push(JSON.parse(snapshot.val().userCord));
+
+        if (tempPos.length == 1) {
+            (userKey == tempPos[0].user)
+            {
+                long = tempPos[0].lng;
+                lat = tempPos[0].lat;
+            }
+            validKey = true;
+            
         }
         if (tempPos.length <= 0) {
-            return false;
-        }s
+            validKey = false;
+        }
+
+        if (validKey == true) {
+     
+            this.pos = {
+                lat: tempPos[0].lat,
+                lng: tempPos[0].lng,
+                user: tempPos[0].user
+            }
+           localStorage.setItem("user",JSON.stringify(pos));
+           changeToLockerContent();
+        }
+        else {
+            console.log("Not Valid Key");
+        }
+
     }, function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
 }
 
 function doMap() {
+    var storageUser = JSON.parse(localStorage.getItem("user"));
+    if((typeof  storageUser.lng != "undefined")||(typeof  storageUser.lat != "undefined"))
+    {
+     long = storageUser.lng;
+     lat = storageUser.lat;
+     userKey =  storageUser.user;
+    }
+    else{
+        long = "";
+        lat = "";      
+    }
+
     if (runOnce == false) {
         if (long == "") {
             if (navigator.geolocation) {
@@ -54,6 +83,7 @@ function doMap() {
             this.pos = {
                 lat: lat,
                 lng: long,
+                user: userKey
             }
             sendData = false;
             init(this.pos);
@@ -86,12 +116,13 @@ function init(pos) {
     };
 
     if (sendData) {
-        var vari = pos.user;
+        var vari = pos.user + "-user";
         database.ref("/" + vari).set(
             {
                 userCord: JSON.stringify(pos)
             }
         );
+        localStorage.setItem("user",JSON.stringify(pos));
     }
     // Get the HTML DOM element that will contain your map 
     // We are using a div with id="map" seen below in the <body>
@@ -107,3 +138,7 @@ function init(pos) {
         title: 'Snazzy!'
     });
 }
+
+
+
+
