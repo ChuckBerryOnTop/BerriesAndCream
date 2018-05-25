@@ -141,8 +141,9 @@ function init(pos) {
     // Let's also add a marker while we're at it
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(pos.lat, pos.lng),
+        draggable:true,
         map: map,
-        title: 'Snazzy!'
+        title: 'DropOff'
     });
 }
 
