@@ -25,7 +25,7 @@ $("#submission").on("click", function (event) {
     });
 });
 
-seconddatabase.ref("/"+userKey+"-user").on('child_added', function (snapshot) {
+seconddatabase.ref("/"+userKey+"-user").on('child_changed', function (snapshot) {
     console.log(snapshot.val());
     var message = snapshot.val();
     $(".main-screen").append(`<div class="row">${message.liveText}</div>`);
