@@ -66,5 +66,5 @@ $("#mapClear").click(function(){
     userKeyArr.push(storageUser.user[1]);
     userKeyArr.push(storageUser.user[2]);
     addToDb(userKeyArr,true);
-    checkKeys() 
+ 
 })
