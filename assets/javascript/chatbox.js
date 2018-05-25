@@ -10,7 +10,6 @@ var secondary = firebase.initializeApp(config2, "secondary");
 
 var seconddatabase = secondary.database();
 
-// var database = firebase.database();
 
 doMap();
 
@@ -19,13 +18,13 @@ $("#submission").on("click", function (event) {
     var textData = $("#text-input").val().trim();
     $("#text-input").val("");
 
-    seconddatabase.ref().push({
+    seconddatabase.ref("/"+userKey+"-user").push({
         liveText: textData,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 });
 
-seconddatabase.ref().on('child_added', function (snapshot) {
+seconddatabase.ref("/"+userKey+"-user").on('child_added', function (snapshot) {
     console.log(snapshot.val());
     var message = snapshot.val();
     $(".main-screen").append(`<div class="row">${message.liveText}</div>`);
@@ -35,7 +34,7 @@ seconddatabase.ref().on('child_added', function (snapshot) {
 });
 
 $("#reset").on("click", function (event) {
-    seconddatabase.ref().remove();
+    seconddatabase.ref("/"+userKey+"-user").remove();
 });
 
 // function loadCommentBox (){
