@@ -1,7 +1,4 @@
-
-
-
-function addToDb(UserKeyArr)
+function addToDb(UserKeyArr,doRefresh=false)
 {
     var pos;
     this.pos = {
@@ -20,6 +17,10 @@ function addToDb(UserKeyArr)
         } else {
          
           console.log("Success");
+          if(doRefresh)
+          {
+            checkKeys() ;
+          }
         }
       });
 }
@@ -28,8 +29,7 @@ function validateAdminKey(KeyEntered,userArr)
 {
     refs.ref("/" + "addCode" + "User").once("value", function (snapshot) {
         var result= snapshot.val();
-
-        if(KeyEntered === result)
+        if(this.KeyEntered === result)
         {
             addToDb(userArr);
         }
@@ -59,3 +59,13 @@ $("form").submit(function () {
 });
 
 
+//On a reset
+$("#mapClear").click(function(){ 
+
+    var userKeyArr = [];  
+    userKeyArr.push(storageUser.user[0]);
+    userKeyArr.push(storageUser.user[1]);
+    userKeyArr.push(storageUser.user[2]);
+    addToDb(userKeyArr,true);
+    checkKeys() 
+})

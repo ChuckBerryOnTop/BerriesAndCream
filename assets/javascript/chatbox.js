@@ -10,9 +10,10 @@ var secondary = firebase.initializeApp(config2, "secondary");
 
 var seconddatabase = secondary.database();
 
-  
- 
-    doMap();
+//Display the map
+doMap();
+
+//Events
 $("#submission").on("click", function (event) {
     event.preventDefault();
     var textData = $("#text-input").val().trim();
