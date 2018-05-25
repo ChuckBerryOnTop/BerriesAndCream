@@ -1,4 +1,5 @@
 
+var storageUser = JSON.parse(localStorage.getItem("user"));
 
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
@@ -46,7 +47,7 @@ function checkKeys() {
 }
 
 function doMap() {
-    var storageUser = JSON.parse(localStorage.getItem("user"));
+   try{
     if((typeof  storageUser.lng != "undefined")||(typeof  storageUser.lat != "undefined"))
     {
      long = storageUser.lng;
@@ -89,6 +90,12 @@ function doMap() {
             init(this.pos);
         }
         runOnce = true;
+    }
+    }
+    catch{
+       
+            window.location.href = "index.html";
+        
     }
 }
 
@@ -134,8 +141,9 @@ function init(pos) {
     // Let's also add a marker while we're at it
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(pos.lat, pos.lng),
+        draggable:true,
         map: map,
-        title: 'Snazzy!'
+        title: 'DropOff'
     });
 }
 

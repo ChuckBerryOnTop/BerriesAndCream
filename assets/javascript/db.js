@@ -1,9 +1,4 @@
-
-
-console.log("Test");
-
-
-function addToDb(UserKeyArr)
+function addToDb(UserKeyArr,doRefresh=false)
 {
     var pos;
     this.pos = {
@@ -16,26 +11,60 @@ function addToDb(UserKeyArr)
         {
             userCord: JSON.stringify(this.pos)
         }
-    );
+    ,function(error) {
+        if (error) {
+          // The write failed...
+        } else {
+         
+          console.log("Success");
+          if(doRefresh)
+          {
+            checkKeys() ;
+          }
+        }
+      });
 }
 
+function validateAdminKey(userArr)
+{
+    refs.ref("/" + "addCode" + "User").once("value", function (snapshot) {
+        var result= snapshot.val();
+        if($("#adminKey").val() === result)
+        {
+            addToDb(userArr);
+        }
+       
+    });
+}
+var userKeyArr = [];
+var KeyToCheck ;
 $("form").submit(function () {
     event.preventDefault();
     var index0 = $("#1").val();
     var index1 = $("#2").val();
     var index2 = $("#3").val();
 
+    KeyToCheck = $("#adminKey").val();
     console.log(index0);
     console.log(index1);
     console.log(index2);
-
-    var userKeyArr = [];
 
     userKeyArr.push(index0);
     userKeyArr.push(index1);
     userKeyArr.push(index2);
 
-    addToDb(userKeyArr);
+    validateAdminKey(userKeyArr);
+    
 });
 
 
+//On a reset
+$("#mapClear").click(function(){ 
+
+    var userKeyArr = [];  
+    userKeyArr.push(storageUser.user[0]);
+    userKeyArr.push(storageUser.user[1]);
+    userKeyArr.push(storageUser.user[2]);
+    addToDb(userKeyArr,true);
+ 
+})
