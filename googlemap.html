@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<style>
+    #map, #pano, #pano2 {
+  width: 750px;
+  height: 500px;
+}
+#row2 {
+    display: block;
+    float: right;
+    margin-top: 0%;
+    height: 100px;
+    width: 200px;
+}
+#row1 {
+    display: block;
+    float: left;
+    margin-top: 0%;
+    height: 100px;
+    width: 200px;
+}
+.row {
+    width: 100%;
+}
+</style>
+
+</head>
+<body>
+ <div class="row" id="row1"> 
+    <div id="map"></div>  
+    <div id="pano2"></div>
+    <div id="pano"></div>
+ </div>
+ <div class="row" id="row2">   
+    <div id="userName-display">Your Name</div>
+    <div id="lat"></div>
+    <div id="lng"></div>
+    <button id="save">Set New Marker</button>
+    <button id="new">Find my location</button>
+    <div id="here"></div>
+
+     </div>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+
+
+//var lat = "";
+//var lng = "";
+
+
+
+
+var config = {
+    apiKey: "AIzaSyAYPllRP9OnxxOD3jrzu3YdjGJcrrLiCA4",
+    authDomain: "my-awesome-project-bac86.firebaseapp.com",
+    databaseURL: "https://my-awesome-project-bac86.firebaseio.com",
+    projectId: "my-awesome-project-bac86",
+    storageBucket: "my-awesome-project-bac86.appspot.com",
+    messagingSenderId: "392169717348"
+  };
+firebase.initializeApp(config);
+var database = firebase.database();
+//var ref = firebase.app().database().ref();
+//var hereRef = ref.child('here');
+
+
+
+
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+       /* var pos;
+        this.pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude, 
+        }*/
+       lat =  position.coords.latitude;
+       lng = position.coords.longitude;   
+       
+       here = {lat: lat, lng: lng}
+     //init(this.pos);
+
+     init(here);
+    });
+   
+}  
+$("#new").on("click", function(){
+    
+    navigator.geolocation.getCurrentPosition(function(position) {
+       /* var pos;
+        this.pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude, 
+        }*/
+       lat =  position.coords.latitude;
+       lng = position.coords.longitude;   
+       
+       here = {lat: lat, lng: lng}
+     //init(this.pos);
+
+     init(here);
+    });
+});  
+function init(position) {
+   
+  
+    var mapOptions = {
+   
+    zoom: 31,
+
+    // disable UI
+    disableDefaultUI: false,
+
+   
+    center: new google.maps.LatLng(here), 
+
+     mapTypeControl: true,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            mapTypeIds: ['roadmap', 'terrain', 'satellite', 'hybrid']
+          },
+    // How you would like to style the map. 
+    // This is where you would paste any style found on Snazzy Maps.
+    //styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+    mapTypeId:google.maps.MapTypeId.TERRAIN    
+};
+
+// Get the HTML DOM element that will contain your map 
+// We are using a div with id="map" seen below in the <body>
+var mapElement = document.getElementById('map');
+
+// Create the Google Map using our element and options defined above
+
+var map = new google.maps.Map(mapElement, mapOptions);
+//var map = new google.maps.StreetViewPanorama(mapElement, mapOptions);
+// Let's also add a marker while we're at it
+var marker = new google.maps.Marker({
+       
+       position: new google.maps.LatLng(here),
+       map: map,
+       title: 'Here'
+     
+});
+var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano2'), {
+            position: here,
+            pov: {
+            heading: 34,
+            pitch: 10
+            }
+        });
+    map.setStreetView(panorama);
+
+var saved;    
+//var saved = firebase.database().ref("/here");
+database.ref("/dropoff").on("value", function(snapshot) {
+    saved = snapshot.val().here;
+
+   
+    var marker2 = new google.maps.Marker({
+       
+            position: new google.maps.LatLng(saved),
+            map: map,
+            title: 'Dropspot'
+          
+    });
+
+    var panorama2 = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+            position: saved,
+            pov: {
+            heading: 34,
+            pitch: 10
+            }
+        });
+    map.setStreetView(panorama2);
+
+//map.setMapTypeId('roadmap');
+//}
+
+}); 
+
+var userName = prompt("What is your name?");
+
+database.ref("/data").set({
+    userName : userName,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP,
+    lat : lat,
+    lng : lng,
+    
+});
+
+ database.ref('/data').on("value", function(snapshot) {
+
+// Log everything that's coming out of snapshot
+//console.log(snapshot.val());
+console.log(snapshot.val().userName);
+
+//var saved = snapshot.val().here;
+// Change the HTML to reflect
+$("#userName-display").text(snapshot.val().userName);
+$("#lat").text(snapshot.val().lat);
+$("#lng").text(snapshot.val().lng);
+
+
+// Handle the errors
+}, function(errorObject) {
+console.log("Errors handled: " + errorObject.code);
+});
+database.ref('/dropoff').on("value", function(snapshot) {
+    $("#here").text("Dropspot" + snapshot.val().here.lat + snapshot.val().here.lng);
+
+});
+console.log(lat);
+$("#save").on("click", function() {
+    database.ref('/dropoff').set({
+        here, 
+        //lat: lat,
+        //lng: lng
+    });
+
+})
+console.log(saved);
+}
+</script>
+
+</body>
+</html>
