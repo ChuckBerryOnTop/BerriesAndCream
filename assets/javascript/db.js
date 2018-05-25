@@ -58,7 +58,7 @@ $("#addUser").submit(function () {
 });
 
 
-//On a reset
+// On a reset
 $("#mapClear").click(function(){ 
 
     var userKeyArr = [];  
