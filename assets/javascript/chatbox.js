@@ -10,9 +10,10 @@ var secondary = firebase.initializeApp(config2, "secondary");
 
 var seconddatabase = secondary.database();
 
-  
- 
-    doMap();
+//Display the map
+doMap();
+
+//Events
 $("#submission").on("click", function (event) {
     event.preventDefault();
     var textData = $("#text-input").val().trim();
@@ -25,6 +26,15 @@ $("#submission").on("click", function (event) {
 });
 
 seconddatabase.ref("/"+userKey+"-user").on('child_added', function (snapshot) {
+    console.log(snapshot.val());
+    var message = snapshot.val();
+    $(".main-screen").append(`<div class="row">${message.liveText}</div>`);
+ 
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
+
+seconddatabase.ref("/"+userKey+"-user").on('child_removed', function (snapshot) {
     console.log(snapshot.val());
     var message = snapshot.val();
     $(".main-screen").append(`<div class="row">${message.liveText}</div>`);
