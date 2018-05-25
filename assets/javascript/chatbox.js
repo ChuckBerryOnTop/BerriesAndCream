@@ -36,6 +36,13 @@ seconddatabase.ref("/"+userKey+"-user").on('child_added', function (snapshot) {
     console.log("Errors handled: " + errorObject.code);
 });
 
+
+seconddatabase.ref("/"+userKey+"-user").on('child_removed', function (snapshot) {
+    document.location.reload();
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
+
 $("#reset").on("click", function (event) {
     seconddatabase.ref("/"+userKey+"-user").remove();
 });
