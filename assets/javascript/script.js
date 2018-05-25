@@ -13,10 +13,6 @@ var storageUser = JSON.parse(localStorage.getItem("user"));
 
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
-<<<<<<< HEAD
-        
-=======
->>>>>>> origin/ChaturaA
         resultArray = snapshot.val();
         if (resultArray == null) {
             return false;
@@ -52,13 +48,7 @@ function checkKeys() {
            changeToLockerContent();
         }
         else {
-<<<<<<< HEAD
-            console.log("Not Valid Key"); 
-                
-            
-=======
             console.log("Not Valid Key");
->>>>>>> origin/ChaturaA
         }
 
     }, function (errorObject) {
@@ -67,10 +57,7 @@ function checkKeys() {
 }
 
 function doMap() {
-<<<<<<< HEAD
    try{
-=======
->>>>>>> origin/ChaturaA
     if((typeof  storageUser.lng != "undefined")||(typeof  storageUser.lat != "undefined"))
     {
      long = storageUser.lng;
@@ -114,15 +101,12 @@ function doMap() {
         }
         runOnce = true;
     }
-<<<<<<< HEAD
     }
     catch{
        
             window.location.href = "index.html";
         
     }
-=======
->>>>>>> origin/ChaturaA
 }
 
 function init(pos) {
