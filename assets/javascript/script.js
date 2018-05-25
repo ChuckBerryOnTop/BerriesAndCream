@@ -1,22 +1,8 @@
-// var YOUR_API_KEY ="AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ";
+
 var storageUser = JSON.parse(localStorage.getItem("user"));
-// var appendText = $( '<script async defer \
-//     src="https://maps.googleapis.com/maps/api/js?key='+
-//     this.YOUR_API_KEY+
-//     '&callback=initMap"> \
-//     </script>')
-// $("body").prepend(appendText);
-
-// $("#google").attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ");
-// $("#google").attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ");
-
 
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
-<<<<<<< HEAD
-        
-=======
->>>>>>> origin/ChaturaA
         resultArray = snapshot.val();
         if (resultArray == null) {
             return false;
@@ -52,13 +38,7 @@ function checkKeys() {
            changeToLockerContent();
         }
         else {
-<<<<<<< HEAD
-            console.log("Not Valid Key"); 
-                
-            
-=======
             console.log("Not Valid Key");
->>>>>>> origin/ChaturaA
         }
 
     }, function (errorObject) {
@@ -67,10 +47,7 @@ function checkKeys() {
 }
 
 function doMap() {
-<<<<<<< HEAD
    try{
-=======
->>>>>>> origin/ChaturaA
     if((typeof  storageUser.lng != "undefined")||(typeof  storageUser.lat != "undefined"))
     {
      long = storageUser.lng;
@@ -114,15 +91,12 @@ function doMap() {
         }
         runOnce = true;
     }
-<<<<<<< HEAD
     }
     catch{
        
             window.location.href = "index.html";
         
     }
-=======
->>>>>>> origin/ChaturaA
 }
 
 function init(pos) {
