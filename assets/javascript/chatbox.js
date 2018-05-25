@@ -10,9 +10,9 @@ var secondary = firebase.initializeApp(config2, "secondary");
 
 var seconddatabase = secondary.database();
 
-
-doMap();
-
+  
+ 
+    doMap();
 $("#submission").on("click", function (event) {
     event.preventDefault();
     var textData = $("#text-input").val().trim();
@@ -51,3 +51,4 @@ $("#reset").on("click", function (event) {
 //     form.append(input);
 //     mainDiv.append(form);
 // }
+ 
