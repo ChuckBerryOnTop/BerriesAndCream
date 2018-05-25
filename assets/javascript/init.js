@@ -24,8 +24,4 @@ var sendData = false;
 
 function changeToLockerContent(){
     window.location.href = "lockerContents.html";
-<<<<<<< HEAD
   } 
-=======
-}
->>>>>>> origin/master

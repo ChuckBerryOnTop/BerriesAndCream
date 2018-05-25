@@ -1,7 +1,5 @@
 
 
-console.log("Test");
-
 
 function addToDb(UserKeyArr)
 {
@@ -16,7 +14,27 @@ function addToDb(UserKeyArr)
         {
             userCord: JSON.stringify(this.pos)
         }
-    );
+    ,function(error) {
+        if (error) {
+          // The write failed...
+        } else {
+         
+          console.log("Success");
+        }
+      });
+}
+
+function validateAdminKey(KeyEntered,userArr)
+{
+    refs.ref("/" + "addCode" + "User").once("value", function (snapshot) {
+        var result= snapshot.val();
+
+        if(KeyEntered === result)
+        {
+            addToDb(userArr);
+        }
+       
+    });
 }
 
 $("form").submit(function () {
@@ -25,6 +43,7 @@ $("form").submit(function () {
     var index1 = $("#2").val();
     var index2 = $("#3").val();
 
+    var KeyToCheck = $("#adminKey").val();
     console.log(index0);
     console.log(index1);
     console.log(index2);
@@ -35,7 +54,8 @@ $("form").submit(function () {
     userKeyArr.push(index1);
     userKeyArr.push(index2);
 
-    addToDb(userKeyArr);
+    validateAdminKey(KeyToCheck ,userKeyArr);
+    
 });
 
 
