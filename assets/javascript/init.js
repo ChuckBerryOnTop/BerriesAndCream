@@ -2,7 +2,7 @@
 var long = "";
 var lat = "";
 var userKey = ""; 
-var comboArray = [0, 0, 0];
+var comboArray = [-1, -1, -1];
 
 var config = {
     apiKey: "AIzaSyDI1LtXpqUCshBIBSmJLdzfp1UFNRT5bfY",
