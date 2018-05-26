@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/lock.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.ttf"></script> -->
     <title>Online Locker</title>
 </head>
 
@@ -20,6 +21,12 @@
 
         <button class="waves-effect btn-large waves-circle waves-red btn-floating" id="mapDirection">Dir</button>
         <button class="waves-effect btn-large waves-circle waves-red btn-floating" id="mapClear">Remap</button>
+        <div class="row">
+            <div class="col m3"></div>
+            <div class="col m3 icon"></div>
+            <div class="col m3 weather"></div>
+            <div class="col m3"></div>
+        </div>
         <div class="row" id="locker-plate">
             <span></span>
             <span></span>
@@ -44,10 +51,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
     <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <script type="text/javascript" src="assets/javascript/weather.js"></script>
     <script type="text/javascript" src="assets/javascript/script.js"></script>
     <script type="text/javascript" src="assets/javascript/chatbox.js"></script>
     <script type="text/javascript" src="assets/javascript/db.js"></script>
-
+    
  </body>
 
 </html>
