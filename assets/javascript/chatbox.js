@@ -13,6 +13,9 @@ var seconddatabase = secondary.database();
 //Display the map
 doMap();
 
+//Display yahoo
+showWeather();
+
 //Events
 $("#submission").on("click", function (event) {
     event.preventDefault();
@@ -36,7 +39,6 @@ seconddatabase.ref("/"+userKey+"-user").on('child_added', function (snapshot) {
     console.log("Errors handled: " + errorObject.code);
 });
 
-
 seconddatabase.ref("/"+userKey+"-user").on('child_removed', function (snapshot) {
     document.location.reload();
 }, function (errorObject) {
@@ -46,19 +48,3 @@ seconddatabase.ref("/"+userKey+"-user").on('child_removed', function (snapshot) 
 $("#reset").on("click", function (event) {
     seconddatabase.ref("/"+userKey+"-user").remove();
 });
-
-// function loadCommentBox (){
-//     var mainDiv = $(".main-area");
-//     var form =$("<form>");
-//     var commentBox = $("<div>");
-//     commentBox.addClass("row main-screen");
-//     var input = $("<div>")
-//     input.addClass("form-group row");
-//     input.append(`<input class="form-control" id="text-input" type="text" placeholder="Type here...">`);
-//     input.append(`<button class="btn-floating btn-large waves-effect waves-light" id="submission" type="submit">Submit</button>`);
-//     input.append(`<button class="btn-floating btn-large waves-effect waves-light" id="reset" >Reset</button>`);
-//     form.append(commentBox);
-//     form.append(input);
-//     mainDiv.append(form);
-// }
- 

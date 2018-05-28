@@ -36,8 +36,7 @@ function validateAdminKey(userArr)
        
     });
 }
-var userKeyArr = [];
-var KeyToCheck ;
+
 $("#addUser").submit(function () {
     event.preventDefault();
     var index0 = $("#1").val();

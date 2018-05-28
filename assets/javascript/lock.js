@@ -55,63 +55,9 @@ $(function () {
 				comboArray[i] = $(".locker-dial ul:eq(" + i + ")").attr("data-combo-numberz");
 			}
 
-			//do the call here to compare the combo array for login in
-
 			userKey = comboArray[0]+""+comboArray[1]+""+comboArray[2];
 			checkKeys();
 			
-			
-
-			// for (var key in combination) {
-			// 	if (comboArray == "" + combination[key]) {
-			// 		$('.locker-dial ul').draggable('disable');
-			// 		$('#locker-wrapper').addClass("unlocked");
-			// 		$('.locker-dial').each(function () {
-			// 			var $this = $(this);
-			// 			$this.find('ul').delay(400).css('color', '#0f0').fadeOut(function () {
-			// 				$this.animate({
-			// 					marginTop: 150
-			// 				}, function () {
-			// 					$this.fadeOut(function () {
-			// 						// $('.welcome-message').fadeIn();
-			// 					});
-			// 				});
-			// 			});
-			// 		});
-			// 	}
- 
-			// userKey = comboArray;
-
-			// var validKey = checkKeys();
-			// console.log("Key is " + userKey + "Validity" + validKey );
-			// if(validKey == true)
-			// {
-			// 	doMap();
- 
-			// }
-			// else
-			// {
-			// 	console.log("Not Valid Key");
-			// }
-			// if(combination[0] != -1 && combination[0] )
-			// for (var key in combination) {
-			// 	if (comboArray == "" + combination[key]) {
-			// 		$('.locker-dial ul').draggable('disable');
-			// 		$('#locker-wrapper').addClass("unlocked");
-			// 		$('.locker-dial').each(function () {
-			// 			var $this = $(this);
-			// 			$this.find('ul').delay(400).css('color', '#0f0').fadeOut(function () {
-			// 				$this.animate({
-			// 					marginTop: 150
-			// 				}, function () {
-			// 					$this.fadeOut(function () {
-			// 						changeToLockerContent();
-			// 					});
-			// 				});
-			// 			});
-			// 		});
-			// 	}
-			// }
 		}
 	});
 
