@@ -1,6 +1,7 @@
 
 var storageUser = JSON.parse(localStorage.getItem("user"));
- 
+
+//Check keys happense
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
         resultArray = snapshot.val();
@@ -46,7 +47,7 @@ function checkKeys() {
         console.log("The read failed: " + errorObject.code);
     });
 }
-
+//Do map is to run after the current page is loaded and the local storage has the latest
 function doMap() {
    
         if ((typeof storageUser.lng != "undefined") || (typeof storageUser.lat != "undefined")) {
@@ -94,6 +95,8 @@ function doMap() {
         }
     }
 
+
+    //Main Google Map Run
 function init(pos) {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -131,28 +134,6 @@ function init(pos) {
     var mapElement = document.getElementById('map');
 
     var currentPos;
-    // // Let's also add a marker while we're at it
-    // if (navigator.geolocation) {
-    //     navigator.geolocation.getCurrentPosition(function (position) {
-    //         var map = new google.maps.Map(mapElement, mapOptions);
-    //         var directionsService = new google.maps.DirectionsService;
-    //         var directionsDisplay = new google.maps.DirectionsRenderer({
-    //             draggable: true,
-    //             map: map,
-    //             panel: document.getElementById('map')
-    //         });
-
-    //         currentPos = {
-    //             lat: position.coords.latitude,
-    //             lng: position.coords.longitude
-    //         };
-
-    //         displayRoute(new google.maps.LatLng(currentPos.lat, currentPos.lng), mapOptions.center, directionsService, directionsDisplay);
-    //         directionsDisplay.addListener('directions_changed', function () {
-    //             computeTotalDistance(directionsDisplay.getDirections());
-    //             return;
-    //         });
-    //     })}
 
         var infoWindow = new google.maps.InfoWindow;
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -172,7 +153,7 @@ function init(pos) {
             displayDirectionRoute(mapElement, mapOptions)
         });
 }
-
+//Google Map helpers
 function displayDirectionRoute(mapElement, mapOptions)
 {
     if (navigator.geolocation) {
@@ -199,8 +180,7 @@ function displayDirectionRoute(mapElement, mapOptions)
 
 };
 }
-
-
+//Google Map helpers
 function displayRoute(origin, destination, service, display) {
     service.route({
         origin: origin,
@@ -224,7 +204,7 @@ function displayRoute(origin, destination, service, display) {
         }
     });
 }
-
+//Google Map helpers
 function computeTotalDistance(result) {
     var total = 0;
     var myroute = result.routes[0];

@@ -21,6 +21,8 @@ var resultArray;
 refs = database;
 var runOnce = false;
 var sendData = false;
+var userKeyArr = [];
+var KeyToCheck ;
 
 function changeToLockerContent(){
     window.location.href = "lockerContents.html";
