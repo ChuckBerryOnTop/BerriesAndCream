@@ -1,6 +1,6 @@
 
 var storageUser = JSON.parse(localStorage.getItem("user"));
-
+ 
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
         resultArray = snapshot.val();
@@ -19,6 +19,7 @@ function checkKeys() {
             {
                 long = tempPos[0].lng;
                 lat = tempPos[0].lat;
+                
             }
             validKey = true;
 
@@ -56,6 +57,8 @@ function doMap() {
         else {
             long = "";
             lat = "";
+            weatherLat = "";
+            weatherLong = "";
         }
 
         if (runOnce == false) {
