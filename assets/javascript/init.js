@@ -24,6 +24,7 @@ var sendData = false;
 var userKeyArr = [];
 var KeyToCheck ;
 
+//navigates us to the page we want
 function changeToLockerContent()
 {
     window.location.href = "lockerContents.html";
