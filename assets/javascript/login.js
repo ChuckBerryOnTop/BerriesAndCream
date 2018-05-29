@@ -26,8 +26,8 @@ $("#button-signup").click(function () {
 
 function displayModal(message)
 {
-        $('#modal-message').html(message);  
-        $('#modal1').modal('open'); 
+  $('#modal-message').html(message);  
+  $('#modal1').modal('open'); 
 }
 
 
