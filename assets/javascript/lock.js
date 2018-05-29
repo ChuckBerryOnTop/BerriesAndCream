@@ -1,3 +1,5 @@
+//Clean Old-Sessions
+localStorage.clear("user");
 
 $(function () {
 	var gridIncrement = $(".locker-dial ul").css('line-height').replace('px', '') / 2;

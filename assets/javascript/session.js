@@ -31,6 +31,13 @@ function IsLoggedIn(){
         {
             goToUnlockPage();
         }
+        case "lockerContents.html":
+        {
+             if(localStorage.getItem("user") == null)
+             {
+                goToUnlockPage();
+             }
+        }
         break;
 
    
