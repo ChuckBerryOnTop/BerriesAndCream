@@ -24,6 +24,23 @@ var sendData = false;
 var userKeyArr = [];
 var KeyToCheck ;
 
-function changeToLockerContent(){
+function changeToLockerContent()
+{
     window.location.href = "lockerContents.html";
-  } 
+}
+    
+function goToFrontPage()
+{ 
+    window.location.href = "login.html";
+}
+
+function goToUnlockPage()
+{ 
+    window.location.href = "index.html";
+}
+
+    
+function goToAdminPage()
+{ 
+    window.location.href = "addUser.html";
+}

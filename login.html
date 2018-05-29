@@ -11,11 +11,28 @@
     <link rel="stylesheet" href="assets/css/lock.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.ttf"></script> -->
     <title>Online Locker</title>
 </head>
 
 <body>
+    
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 style="text-align: center;">Dropoff Alert
+                <br> <img src="assets/images/error.gif" alt="Smiley face" height="140" width="140">
+            </h4>
+           
+            <p id="modal-message" style="text-align: center;">Message :</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cool</a>
+        </div>
+    </div>
+
     <nav>
         <div class="nav-wrapper container">
             <div class=row>
@@ -49,37 +66,41 @@
 
             </div>
         </div>
-
-
     </nav>
-
-
-    <div class="main-area container">
-        <div class="row" id="map">
-        </div>
-
-        <button class="waves-effect btn-large waves-circle waves-red btn-floating" id="mapDirection">Dir</button>
-        <button class="waves-effect btn-large waves-circle waves-red btn-floating" id="mapClear">Remap</button>
+    <div class="container">
         <div class="row">
-            <div class="col m3"></div>
-            <div class="col m3 icon"></div>
-            <div class="col m3 weather"></div>
-            <div class="col m3"></div>
+
+
         </div>
-        <div class="row" id="locker-plate">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <div class="row main-screen" id="text-box"></div>
-        </div>
-        <form class="row">
-            <div class="form-group row">
-                <input class="form-control" id="text-input" type="text" placeholder="Type here...">
-                <button class="btn-floating btn-large waves-effect waves-light" id="submission" type="submit">Submit</button>
-                <button class="btn-floating btn-large waves-effect waves-light" id="reset">Reset</button>
+        <div class="row">
+            <div class="input-field inline col s12">
+
+                <label for="email_inline">Email</label>
+                <input id="email_inline" type="email" class="validate">
             </div>
-        </form>
+        </div>
+
+        <div class="row">
+
+            <div class="input-field col s12">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="validate">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <a id="button-signup" class="waves-effect waves-light btn">
+                    <i class="material-icons left">cloud</i>Sign-Up</a>
+                <button id="button-submit" class="btn waves-effect waves-light" type="submit" name="action">Login
+                    <i class="material-icons right">send</i>
+                </button>
+                <button id="signin-google" class="btn waves-effect waves-light" type="submit" name="action">Google Auth
+                    <i class="material-icons right">vpn_lock</i>
+                </button>
+            </div>
+        </div>
+
     </div>
 
 
@@ -88,15 +109,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> 
-    
     <script type="text/javascript" src="assets/javascript/init.js"></script>
-    <script type="text/javascript" src="assets/javascript/weather.js"></script>
-    <script type="text/javascript" src="assets/javascript/script.js"></script>
-    <script type="text/javascript" src="assets/javascript/chatbox.js"></script>
-    <script type="text/javascript" src="assets/javascript/db.js"></script>
     <script type="text/javascript" src="assets/javascript/login.js"> </script>
     <script type="text/javascript" src="assets/javascript/session.js"> </script>
-
 </body>
 
 </html>
