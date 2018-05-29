@@ -18,6 +18,7 @@ function IsLoggedIn(){
         case "index.html":
         case "addUser.html":
         case "lockerContents.html":
+        case "":
         {
             goToFrontPage();
         }
