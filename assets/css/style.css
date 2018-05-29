@@ -3,8 +3,8 @@
     height: 500px;
   }
 
-#text-box {
-	width: 396px;
+#text-box { 
+	/* width: 396px; */
 	padding: 5px 20px 5px 8px;
 	border-radius: 7px;
 	height: 400px;
@@ -22,4 +22,8 @@
 	color: green;
 	text-shadow: 0 0 5px #3f3;
 	
+}
+
+.container{
+	widows: 100%;
 }
