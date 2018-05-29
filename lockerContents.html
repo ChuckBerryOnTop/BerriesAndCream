@@ -15,41 +15,44 @@
 </head>
 
 <body>
-        <nav>
-                <div class="nav-wrapper container">
-                    <div class=row>
-                        <div class="col m8 s8">
-                            <a href="./login.html" class="btn-floating btn-large cyan pulse">
-                                <i class="material-icons">lock_outline</i>
-                            </a>
-                            <a href="./index.html" class="btn-floating btn-large cyan pulse">
-                                <i class="material-icons">enhanced_encryption</i>
-                            </a>
-                            <a href="./addUser.html" class="btn-floating btn-large cyan pulse">
-                                <i class="material-icons">speaker_notes</i>
-                            </a>
-                        </div>
-                        <div class="col m4 s4">
-                            <div class="row">
-                                <div class="col m12 s12 login-state" class="hide left">
-                                    <a href="">
-                                        <span class="new badge green" data-badge-caption="LoggedIn"></span>
-                                    </a>
-                                </div>
+    <nav>
+        <div class="nav-wrapper container">
+            <div class=row>
+                <div class="col m8 s8">
+                    <a href="./login.html" class="btn-floating btn-large cyan pulse">
+                        <i class="material-icons">lock_outline</i>
+                    </a>
+                    <a href="./index.html" class="btn-floating btn-large cyan pulse">
+                        <i class="material-icons">enhanced_encryption</i>
+                    </a>
+                    <a href="./addUser.html" class="btn-floating btn-large cyan pulse">
+                        <i class="material-icons">speaker_notes</i>
+                    </a>
+                </div>
+                <div class="col m4 s4">
+                    <div class="row">
+                        <div class="col m12 s12">
+                            <div id="login-state" class="hide">
+                                <a href="">
+                                    <span class="new badge blue" data-badge-caption="LoggedIn"></span>
+                                </a>
                             </div>
-                            <div class="row" class="right">
-                                <div class="col m12 s12 login-state" class="hide right">
-                                    <a id="logout-now" href="">
-                                        <span class="new badge blue" data-badge-caption="LogOut(Now)"></span>
-                                    </a>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m12 s12">
+                            <div id="login-state-out" class="hide">
+                                <a id="logout-now" href="">
+                                    <span class="new badge red" data-badge-caption="Log Out"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-
-
+            </div>
+        </div>
+        </div>
+    </nav>
     <div class="main-area container-fluid">
         <div class="row">
             <div class="col m12 s12">

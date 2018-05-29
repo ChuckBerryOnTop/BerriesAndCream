@@ -61,7 +61,8 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("User is Logged in");
-        $( "login-state").removeClass("hide");
+        $("#login-state").removeClass("hide");
+        $("#login-state-out").removeClass("hide");
         localStorage.setItem("user-logged",true);
     }
     else {
