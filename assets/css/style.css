@@ -27,3 +27,7 @@
 .container{
 	widows: 100%;
 }
+
+nav{
+	height: 90px;
+}
