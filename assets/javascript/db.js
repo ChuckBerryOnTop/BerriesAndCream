@@ -14,12 +14,16 @@ function addToDb(UserKeyArr,doRefresh=false)
     ,function(error) {
         if (error) {
           // The write failed...
+          displayModal("Error !!!")
+          
         } else {
          
           console.log("Success");
+          displayModal("Added Key "+ this.pos.user);
           if(doRefresh)
           {
             checkKeys() ;
+            
           }
         }
       });
@@ -32,6 +36,9 @@ function validateAdminKey(userArr)
         if($("#adminKey").val() === result)
         {
             addToDb(userArr);
+        }
+        else{
+            displayModal("Wrong Add Code Ma Dude!");
         }
        
     });
