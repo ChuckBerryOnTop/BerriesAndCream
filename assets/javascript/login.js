@@ -69,6 +69,7 @@ function displayModal(message) {
 $("#logout-now").click(function () {   
     localStorage.setItem("user-logged", false);
     firebase.auth().signOut();
+    firebase.sharedInstance().signOut();
 });
 
 //This is for the google Auth
