@@ -50,3 +50,5 @@ function IsLoggedIn() {
         goToFrontPage();
     }
 }
+
+doLogin();
