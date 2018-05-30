@@ -1,7 +1,6 @@
 
 // have to initialize first for modals to work
 $('.modal').modal();
-checklLogin();
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
