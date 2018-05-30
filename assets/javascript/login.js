@@ -81,7 +81,8 @@ $("#logout-now").click(function () {
         
         localStorage.clear();
         localStorage.setItem("user-logged", false);
-        location.reload();
+        firebase.sharedInstance().signOut();
+        firebase.initializeApp(config);
 });
    
 });
@@ -124,6 +125,5 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         localStorage.setItem("user-logged", false);
     }
     IsLoggedIn();
-
 });
 
