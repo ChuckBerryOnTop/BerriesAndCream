@@ -1,4 +1,4 @@
-
+//Gets from local storage
 var storageUser = JSON.parse(localStorage.getItem("user"));
 
 //Check keys,checks if the current key is valid and has any information stored on the firebase db
@@ -169,6 +169,8 @@ function displayDirectionRoute(mapElement, mapOptions)
                 panel: document.getElementById('map')
             });
 
+            directionsDisplay.setPanel(document.getElementById('right-panel'))
+
             currentPos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
@@ -193,14 +195,14 @@ function displayRoute(origin, destination, service, display) {
         provideRouteAlternatives: true,
     }, function (response, status) {
         if (status === 'OK') {
-            for (var i = 0, len = response.routes.length; i < len; i++) {
-                new google.maps.DirectionsRenderer({
-                    map: map,
-                    directions: response,
-                    routeIndex: i,
-                    draggable: true,
-                });
-            }
+            // for (var i = 0, len = response.routes.length; i < len; i++) {
+            //     new google.maps.DirectionsRenderer({
+            //         map: map,
+            //         directions: response,
+            //         routeIndex: i,
+            //         draggable: true,
+            //     });
+            // }
             display.setDirections(response);
         } else {
             displayModal('Could not display directions due to: ' + status);

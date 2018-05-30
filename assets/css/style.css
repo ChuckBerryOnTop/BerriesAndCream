@@ -31,3 +31,36 @@
 nav{
 	height: 90px;
 }
+
+#right-panel {
+	font-family: 'Roboto','sans-serif';
+	line-height: 30px;
+	padding-left: 10px;
+  }
+
+  #right-panel select, #right-panel input {
+	font-size: 15px;
+  }
+
+  #right-panel select {
+	width: 100%;
+  }
+
+  #right-panel i {
+	font-size: 12px;
+  }
+  #right-panel {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+  }
+
+  .fixed-action-btn {
+	position: fixed;
+	top: 6.28px;
+    right: 23px;
+    bottom: unset !important;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 997;
+}

@@ -2,6 +2,14 @@
 // have to initialize first for modals to work
 $('.modal').modal(); 
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left'
+    });
+  });
+       
 //This is use to submit a user name and password
 $("#button-submit").click(function () {
     var txtEmail = $("#email_inline").val();
@@ -41,8 +49,8 @@ $("#button-signup").click(function () {
     {
         //Some UI info for the user
         displayModal("Make Sure to Fill in the information highlighted");
-        $("#passwordRow").delay("4000").css('background-color', '#00FFFF').fadeIn();
-        $("#emailRow").delay("4000").css('background-color', '#00FFFF').fadeIn();
+        $("#passwordRow").delay("4000").css('background-color', '#ee6e73').fadeIn();
+        $("#emailRow").delay("4000").css('background-color', '#ee6e73').fadeIn();
         $(".input-field>label").css('color','white');
         return;
     }
@@ -94,8 +102,9 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("User is Logged in"); 
-        $("#login-state-out").removeClass("hide");
-        $("#buttonsRow").removeClass("hide");
+       
+        $("#dynamicMenu").removeClass("hide");
+ 
         localStorage.setItem("user-logged",true);
     }
     else {
