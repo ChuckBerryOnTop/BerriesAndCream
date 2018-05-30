@@ -1,5 +1,4 @@
 //2nd databse for the chatbox
-
 var config2 = {
     apiKey: "AIzaSyCwYeFUirtuvo1lFjm2ATD3zxlWI1pmHBo",
     authDomain: "jeff-project-26325.firebaseapp.com",

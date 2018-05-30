@@ -31,7 +31,6 @@ $("#button-submit").click(function () {
     promise.catch(function(error){displayModal(error.message)});
 });
 
-
 //On a the button click to signup
 $("#button-signup").click(function () {
 
@@ -53,22 +52,25 @@ $("#button-signup").click(function () {
     promise.catch(function(error){displayModal(error.message)});
 });
 
+//Multi Purpose message Loader
 function displayModal(message)
 {
   $('#modal-message').html(message);  
   $('#modal1').modal('open'); 
 }
 
-
+//Log-out button can log us out
 $("#logout-now").click(function () {
     firebase.auth().signOut();
 });
 
+//This is for the google Auth
 $("#signin-google").click(function () 
 {
 //For Google Auth
 var provider = new firebase.auth.GoogleAuthProvider();
 
+//Fire base event to trigger google popup
 firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
@@ -87,6 +89,8 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
  });
 });
 
+
+//Firebase event handler that asynch updates our session based on the login status both internal and google auth
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("User is Logged in"); 
@@ -97,7 +101,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     else {
         console.log("User is Not-Logged in");
         localStorage.setItem("user-logged",false);
- 
     }   
     IsLoggedIn();
 
