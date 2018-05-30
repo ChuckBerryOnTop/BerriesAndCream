@@ -64,3 +64,7 @@ nav{
     margin-bottom: 0;
     z-index: 997;
 }
+
+li > a{
+	 color:#18ffff !important;
+ }
