@@ -1,20 +1,22 @@
 
 var storageUser = JSON.parse(localStorage.getItem("user"));
 
-//Check keys happense
+//Check keys,checks if the current key is valid and has any information stored on the firebase db
 function checkKeys() {
     refs.ref("/" + userKey + "-user").once("value", function (snapshot) {
+       //Results
         resultArray = snapshot.val();
         if (resultArray == null) {
-            return false;
+            return false; //No results
         }
-        console.log("Result Array : " + resultArray);
-        var child = snapshot.child;
-        console.log(child);
-        var tempPos = [];
-        console.log(snapshot.val().userCord);
-        tempPos.push(JSON.parse(snapshot.val().userCord));
 
+
+        //console.log("Result Array : " + resultArray);
+
+        var tempPos = [];
+       // console.log(snapshot.val().userCord);
+        tempPos.push(JSON.parse(snapshot.val().userCord));
+       //If the tempPos has atleast one
         if (tempPos.length == 1) {
             (userKey == tempPos[0].user)
             {
@@ -23,19 +25,20 @@ function checkKeys() {
                 
             }
             validKey = true;
-
         }
+        //If tempPos is zero
         if (tempPos.length <= 0) {
             validKey = false;
         }
-
+        //If the valid Key is true
         if (validKey == true) {
-
+            //Parse it 
             this.pos = {
                 lat: tempPos[0].lat,
                 lng: tempPos[0].lng,
                 user: tempPos[0].user
             }
+            //set the localstorage token
             localStorage.setItem("user", JSON.stringify(pos));
             changeToLockerContent();
         }
@@ -185,7 +188,7 @@ function displayRoute(origin, destination, service, display) {
     service.route({
         origin: origin,
         destination: destination,
-        travelMode: 'WALKING',
+        travelMode: 'DRIVING',
         avoidTolls: true,
         provideRouteAlternatives: true,
     }, function (response, status) {
@@ -200,7 +203,7 @@ function displayRoute(origin, destination, service, display) {
             }
             display.setDirections(response);
         } else {
-            alert('Could not display directions due to: ' + status);
+            displayModal('Could not display directions due to: ' + status);
         }
     });
 }

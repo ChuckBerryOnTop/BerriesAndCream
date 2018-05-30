@@ -1,45 +1,76 @@
 
-//TODO : Validate the email and password
-$('.modal').modal(); // have to initialize first for modals to work
-$("#button-submit").click(function () {
+// have to initialize first for modals to work
+$('.modal').modal(); 
 
+//This is use to submit a user name and password
+$("#button-submit").click(function () {
     var txtEmail = $("#email_inline").val();
     var txtPassword = $("#password").val();
+   
+   //Simple validation
+    if(txtEmail.length >= 0)
+    {
+        if( /(.+)@(.+){2,}\.(.+){2,}/.test(txtEmail) ){
+            // valid email so do nothing it can continue
+          } else {
+            // invalid email
+            return displayModal("Invalid Email")
+          }
+       
+    }
+
+    if(txtPassword.length < 6)
+    {
+        return displayModal("Invalid Password Length")
+    }
 
     const auth = firebase.auth();
-    console.log(txtEmail, txtPassword);
     const promise = auth.signInWithEmailAndPassword(txtEmail, txtPassword);
-    promise.catch(e => displayModal(e.message));
+
+    //On fail it will display the fail error
+    promise.catch(function(error){displayModal(error.message)});
 });
 
-
+//On a the button click to signup
 $("#button-signup").click(function () {
 
     var txtEmail = $("#email_inline").val();
     var txtPassword = $("#password").val();
 
+    if(txtEmail.length == 0 || txtPassword < 6)
+    {
+        //Some UI info for the user
+        displayModal("Make Sure to Fill in the information highlighted");
+        $("#passwordRow").delay("4000").css('background-color', '#00FFFF').fadeIn();
+        $("#emailRow").delay("4000").css('background-color', '#00FFFF').fadeIn();
+        $(".input-field>label").css('color','white');
+        return;
+    }
     const auth = firebase.auth();
     console.log(txtEmail, txtPassword);
     const promise = auth.createUserWithEmailAndPassword(txtEmail, txtPassword);
-    promise.catch(e => displayModal(e.message));
+    promise.catch(function(error){displayModal(error.message)});
 });
 
+//Multi Purpose message Loader
 function displayModal(message)
 {
   $('#modal-message').html(message);  
   $('#modal1').modal('open'); 
 }
 
-
+//Log-out button can log us out
 $("#logout-now").click(function () {
     firebase.auth().signOut();
 });
 
+//This is for the google Auth
 $("#signin-google").click(function () 
 {
 //For Google Auth
 var provider = new firebase.auth.GoogleAuthProvider();
 
+//Fire base event to trigger google popup
 firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
@@ -58,17 +89,18 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
  });
 });
 
+
+//Firebase event handler that asynch updates our session based on the login status both internal and google auth
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        console.log("User is Logged in");
-        $("#login-state").removeClass("hide");
+        console.log("User is Logged in"); 
         $("#login-state-out").removeClass("hide");
+        $("#buttonsRow").removeClass("hide");
         localStorage.setItem("user-logged",true);
     }
     else {
         console.log("User is Not-Logged in");
         localStorage.setItem("user-logged",false);
- 
     }   
     IsLoggedIn();
 
