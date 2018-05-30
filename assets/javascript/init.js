@@ -45,7 +45,7 @@ function notifyCurrentBrowser() {
     var browser_name = '';
     isIE = /*@cc_on!@*/false || !!document.documentMode;
     isEdge = !isIE && !!window.StyleMedia;
-    if (navigator.userAgent.indexOf("Chrome") != -1 && !isEdge) {
+    if (navigator.userAgent.indexOf("Chrome") != -1 && !isEdge  ) {
         browser_name = 'chrome';
     }
     else if (navigator.userAgent.indexOf("Safari") != -1 && !isEdge) {
@@ -58,6 +58,9 @@ function notifyCurrentBrowser() {
     {
         browser_name = 'ie';
     }
+    else if (navigator.userAgent.indexOf("Mozilla") != -1 && !isEdge) {
+        browser_name = 'chrome';
+    }
     else if (isEdge) {
         browser_name = 'edge';
     }
@@ -67,7 +70,7 @@ function notifyCurrentBrowser() {
 
     if(browser_name != 'chrome' && browser_name != 'firefox')
     {
-        displayModal("Your browser "+ browser_name + " is not Compatible Be Aware of Wierd side effects");
+        displayModal("Debug ["+navigator.userAgent+"] Your browser "+ browser_name + " is not Compatible Be Aware of Wierd side effects");
     }
 
 }

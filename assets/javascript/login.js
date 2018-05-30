@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Notify the browser
-// notifyCurrentBrowser()
+//notifyCurrentBrowser()
 
 //This is use to submit a user name and password
 $("#button-submit").click(function () {
@@ -57,6 +57,12 @@ $("#button-signup").click(function () {
     console.log(txtEmail, txtPassword);
     const promise = auth.createUserWithEmailAndPassword(txtEmail, txtPassword);
     promise.catch(function (error) { displayModal(error.message) });
+    promise.then(function(firebaseUser) {
+        //I don't know if the next statement is necessary 
+        firebase.auth().signOut();
+        firebase.sharedInstance().signOut();
+    });
+
 });
 
 //Multi Purpose message Loader
@@ -66,8 +72,10 @@ function displayModal(message) {
 }
 
 //Log-out button can log us out
-$("#logout-now").click(function () {
+$("#logout-now").click(function () {   
+    localStorage.setItem("user-logged", false);
     firebase.auth().signOut();
+    firebase.sharedInstance().signOut();
 });
 
 //This is for the google Auth
@@ -99,9 +107,7 @@ $("#signin-google").click(function () {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("User is Logged in");
-
         $("#dynamicMenu").removeClass("hide");
-
         localStorage.setItem("user-logged", true);
     }
     else {
