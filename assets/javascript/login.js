@@ -116,7 +116,7 @@ $("#signin-google").click(function () {
  
 //Firebase event handler that asynch updates our session based on the login status both internal and google auth
 firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser && loggedOutAlready == false) {
+    if (firebaseUser ) {
         console.log("User is Logged in");
         $("#dynamicMenu").removeClass("hide");
         localStorage.setItem("user-logged", true);
@@ -129,3 +129,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     IsLoggedIn();
 });
  
+firebase.auth().onIdTokenChanged(function(user) {
+    if (user) {
+      // User is signed in or token was refreshed.
+    }
+    else{
+        console.log("User is Not-Logged in");
+        localStorage.setItem("user-logged", false);
+    }
+  });
