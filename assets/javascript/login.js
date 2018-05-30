@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Notify the browser
-notifyCurrentBrowser()
+//notifyCurrentBrowser()
 
 //This is use to submit a user name and password
 $("#button-submit").click(function () {
