@@ -57,7 +57,7 @@ $("#button-signup").click(function () {
     console.log(txtEmail, txtPassword);
     const promise = auth.createUserWithEmailAndPassword(txtEmail, txtPassword);
     promise.catch(function (error) { displayModal(error.message) });
-    promise.then(function(firebaseUser) {
+    promise.then(function (firebaseUser) {
         //I don't know if the next statement is necessary 
         firebase.auth().signOut();
         firebase.sharedInstance().signOut();
@@ -72,11 +72,13 @@ function displayModal(message) {
 }
 
 //Log-out button can log us out
-$("#logout-now").click(function () {   
+$("#logout-now").click(function () {
     localStorage.setItem("user-logged", false);
     localStorage.clear();
-    firebase.auth().signOut();
-    firebase.sharedInstance().signOut();
+    firebase.auth().signOut().catch(function(error){
+            displayModal(error);// Do this
+    });
+   
 });
 
 //This is for the google Auth
