@@ -76,7 +76,7 @@ $("#logout-now").click(function () {
     localStorage.setItem("user-logged", false);
     localStorage.clear();
     firebase.auth().signOut();
-    firebase.sharedInstance().signOut();
+   
 });
 
 //This is for the google Auth
