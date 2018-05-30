@@ -56,7 +56,8 @@ nav{
   }
 
   .fixed-action-btn {
-    position: fixed;
+	position: fixed;
+	top: 6.28px;
     right: 23px;
     bottom: unset !important;
     padding-top: 15px;
