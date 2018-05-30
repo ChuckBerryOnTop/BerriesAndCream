@@ -73,11 +73,16 @@ function displayModal(message) {
 
 //Log-out button can log us out
 $("#logout-now").click(function () {
-    localStorage.setItem("user-logged", false);
-    localStorage.clear();
+    
     firebase.auth().signOut().catch(function(error){
             displayModal(error);// Do this
     });
+    firebase.auth().signOut().then(function(error){
+        
+        localStorage.clear();
+        localStorage.setItem("user-logged", false);
+        location.reload();
+});
    
 });
 
@@ -112,6 +117,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         console.log("User is Logged in");
         $("#dynamicMenu").removeClass("hide");
         localStorage.setItem("user-logged", true);
+
     }
     else {
         console.log("User is Not-Logged in");
