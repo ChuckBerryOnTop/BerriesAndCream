@@ -37,6 +37,10 @@ $("#button-submit").click(function () {
 
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
+    promise.then(function (firebaseUser) {
+        loggedOutAlready = false;
+        doLogin();
+    });
 });
 
 //On a the button click to signup
@@ -61,6 +65,8 @@ $("#button-signup").click(function () {
         //I don't know if the next statement is necessary 
         firebase.auth().signOut();
         firebase.sharedInstance().signOut();
+        loggedOutAlready = false;
+        doLogin();
     });
 
 });
@@ -77,14 +83,14 @@ $("#logout-now").click(function () {
     firebase.auth().signOut().catch(function(error){
             displayModal(error);// Do this
     });
-    firebase.auth().signOut().then(function(error){
+    firebase.auth().signOut().then(function(success){
         
         localStorage.clear();
         localStorage.setItem("user-logged", false);
         loggedOutAlready = true;
+        doLogin();
    
 });
-    firebase.sharedInstance().signOut();
        
 });
 
@@ -112,7 +118,8 @@ $("#signin-google").click(function () {
     });
 });
 
-
+function doLogin()
+{
 //Firebase event handler that asynch updates our session based on the login status both internal and google auth
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser && loggedOutAlready == false) {
@@ -127,4 +134,4 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
     IsLoggedIn();
 });
-
+}
