@@ -37,9 +37,6 @@ $("#button-submit").click(function () {
 
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
-    promise.then(function (sucess){
-        checklLogin();
-    });
 });
 
 //On a the button click to signup
@@ -73,7 +70,7 @@ function displayModal(message) {
     $('#modal-message').html(message);
     $('#modal1').modal('open');
 }
-
+var loggedOutAlready = false;
 //Log-out button can log us out
 $("#logout-now").click(function () {
     
@@ -84,10 +81,11 @@ $("#logout-now").click(function () {
         
         localStorage.clear();
         localStorage.setItem("user-logged", false);
-        checklLogin();
+        loggedOutAlready = true;
    
 });
-   
+    firebase.sharedInstance().signOut();
+       
 });
 
 //This is for the google Auth
@@ -116,9 +114,8 @@ $("#signin-google").click(function () {
 
 
 //Firebase event handler that asynch updates our session based on the login status both internal and google auth
-function checklLogin(){
 firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
+    if (firebaseUser && loggedOutAlready == false) {
         console.log("User is Logged in");
         $("#dynamicMenu").removeClass("hide");
         localStorage.setItem("user-logged", true);
@@ -130,4 +127,4 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
     IsLoggedIn();
 });
-}
+
