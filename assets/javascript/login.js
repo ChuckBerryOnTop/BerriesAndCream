@@ -1,6 +1,7 @@
 
 // have to initialize first for modals to work
 $('.modal').modal();
+checklLogin();
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
@@ -37,6 +38,9 @@ $("#button-submit").click(function () {
 
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
+    promise.then(function (sucess){
+        checklLogin();
+    });
 });
 
 //On a the button click to signup
@@ -81,8 +85,8 @@ $("#logout-now").click(function () {
         
         localStorage.clear();
         localStorage.setItem("user-logged", false);
-        firebase.sharedInstance().signOut();
-        firebase.initializeApp(config);
+        checklLogin();
+   
 });
    
 });
@@ -113,6 +117,7 @@ $("#signin-google").click(function () {
 
 
 //Firebase event handler that asynch updates our session based on the login status both internal and google auth
+function checklLogin(){
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("User is Logged in");
@@ -126,4 +131,4 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
     IsLoggedIn();
 });
-
+}
