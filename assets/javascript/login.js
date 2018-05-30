@@ -101,7 +101,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         console.log("User is Logged in");
 
         $("#dynamicMenu").removeClass("hide");
-
         localStorage.setItem("user-logged", true);
     }
     else {

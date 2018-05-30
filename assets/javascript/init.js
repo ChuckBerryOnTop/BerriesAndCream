@@ -58,6 +58,9 @@ function notifyCurrentBrowser() {
     {
         browser_name = 'ie';
     }
+    else if (navigator.userAgent.indexOf("Mozilla") != -1 && !isEdge) {
+        browser_name = 'chrome';
+    }
     else if (isEdge) {
         browser_name = 'edge';
     }
