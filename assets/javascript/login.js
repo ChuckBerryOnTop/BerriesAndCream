@@ -74,6 +74,7 @@ function displayModal(message) {
 //Log-out button can log us out
 $("#logout-now").click(function () {   
     localStorage.setItem("user-logged", false);
+    localStorage.clear();
     firebase.auth().signOut();
     firebase.sharedInstance().signOut();
 });
