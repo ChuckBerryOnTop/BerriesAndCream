@@ -9,77 +9,117 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/lock.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Online Locker</title>
 </head>
 
 <body>
-    <div class="main-area">
-
-        <div id="locker-plate">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <div id="locker-wrapper">
-                <div class="locker-dial" id="dialer-one">
-                    <ul data-combo-numberz="0">
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li>0</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                    </ul>
-                </div>
-                <div class="locker-dial" id="dialer-two">
-                    <ul data-combo-numberz="0">
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li>0</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                    </ul>
-                </div>
-                <div class="locker-dial" id="dialer-three">
-                    <ul data-combo-numberz="0">
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li>0</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                    </ul>
-                </div>
- 
-                <!-- <div class="locker-dial" id="dialer-four"><ul data-combo-numberz="0"><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ul></div>
-                <div class="locker-dial" id="dialer-five"><ul data-combo-numberz="0"><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ul></div> -->
- 
-            </div>
-
+    <div class="fixed-action-btn hide" id="dynamicMenu">
+        <a class="btn-floating btn-large blue">
+            <i class="large material-icons">explore</i>
+        </a>
+        <ul  class="background-friendly">
+                <li>
+                        <a href="./index.html" class="btn-floating amber pulse">
+                            <i class="material-icons">enhanced_encryption</i>lock
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./addUser.html" class="btn-floating orange darken-1 pulse">
+                            <i class="material-icons">speaker_notes</i>add
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" id="logout-now" class="btn-floating green darken-1 pulse">
+                            <i class="material-icons">lock_open</i>logout
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream" class="btn-floating cyan darken-1 pulse">
+                            <i class="material-icons">chevron_right</i>code
+                        </a>
+                    </li>
+        </ul>
+    </div>
+    <nav>
+        <div class="nav-wrapper container">
+           
         </div>
-        <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
-        <script type="text/javascript" src="assets/javascript/init.js"></script>
-        <script type="text/javascript" src="assets/javascript/lock.js"></script>
-        <script type="text/javascript" src="assets/javascript/script.js"></script>
+    </nav>
+    <div class="row">
+        <div class="col m12 s12">
+            <div class="main-area">
+                <div id="locker-plate">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div id="locker-wrapper">
+                        <div class="locker-dial" id="dialer-one">
+                            <ul data-combo-numberz="0">
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li>0</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                            </ul>
+                        </div>
+                        <div class="locker-dial" id="dialer-two">
+                            <ul data-combo-numberz="0">
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li>0</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                            </ul>
+                        </div>
+                        <div class="locker-dial" id="dialer-three">
+                            <ul data-combo-numberz="0">
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li>0</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="./assets/javascript/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <script type="text/javascript" src="assets/javascript/lock.js"></script>
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
+    <script type="text/javascript" src="assets/javascript/login.js"> </script>
+    <script type="text/javascript" src="assets/javascript/session.js"> </script>
 </body>
 
 </html>

@@ -1,12 +1,18 @@
+//This is mainly for the adding(Activating) a code in the lock box
+//{Helper}This adds new key or resets a key to the actual db 
 function addToDb(UserKeyArr,doRefresh=false)
 {
+    //Creates a temp object with the Passsed in user UserKeyArr
     var pos;
     this.pos = {
         lat: "",
         lng: "",
         user: UserKeyArr[0]+""+UserKeyArr[1]+""+UserKeyArr[2]
     }
+    //Appends to a unique way to store on the firbase db
     var vari = this.pos.user+"-user";
+
+    //Do the set to replace the existing, if it exists
     database.ref("/" + vari).set(
         {
             userCord: JSON.stringify(this.pos)
@@ -14,17 +20,24 @@ function addToDb(UserKeyArr,doRefresh=false)
     ,function(error) {
         if (error) {
           // The write failed...
+          displayModal("Error !!!")
+          
         } else {
          
-          console.log("Success");
+          //console.log("Success"); 
+          displayModal("Added Key "+ this.pos.user);
+         
+          //
           if(doRefresh)
           {
-            checkKeys() ;
+            checkKeys() ;     
           }
         }
       });
 }
 
+
+//Checks with the database to see if the as
 function validateAdminKey(userArr)
 {
     refs.ref("/" + "addCode" + "User").once("value", function (snapshot) {
@@ -33,11 +46,13 @@ function validateAdminKey(userArr)
         {
             addToDb(userArr);
         }
+        else{
+            displayModal("Wrong Add Code Ma Dude!");
+        }
        
     });
 }
-var userKeyArr = [];
-var KeyToCheck ;
+
 $("#addUser").submit(function () {
     event.preventDefault();
     var index0 = $("#1").val();
@@ -58,7 +73,7 @@ $("#addUser").submit(function () {
 });
 
 
-//On a reset
+// On a reset
 $("#mapClear").click(function(){ 
 
     var userKeyArr = [];  

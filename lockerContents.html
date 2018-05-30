@@ -9,17 +9,66 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/lock.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Online Locker</title>
 </head>
 
 <body>
-    <div class="main-area container">
-        <div class="row" id="map"> 
+    <div class="fixed-action-btn hide" id="dynamicMenu">
+        <a class="btn-floating btn-large blue">
+            <i class="large material-icons">explore</i>
+        </a>
+        <ul class="background-friendly">
+            <li>
+                <a href="./index.html" class="btn-floating amber pulse">
+                    <i class="material-icons">enhanced_encryption</i>lock
+                </a>
+            </li>
+            <li>
+                <a href="./addUser.html" class="btn-floating orange darken-1 pulse">
+                    <i class="material-icons">speaker_notes</i>add
+                </a>
+            </li>
+            <li>
+                <a href="" id="logout-now" class="btn-floating green darken-1 pulse">
+                    <i class="material-icons">lock_open</i>logout
+                </a>
+            </li>
+
+            <li>
+                <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream" class="btn-floating cyan darken-1 pulse">
+                    <i class="material-icons">chevron_right</i>code
+                </a>
+            </li>
+        </ul>
+    </div>
+     
+        <nav>
+            <div class="nav-wrapper container">
+
+
+            </div>
+        </nav>
+ 
+    <div class="main-area container-fluid">
+        <div class="row">
+            <div class="col m12 s12">
+                <div id="map">
+
+                </div>
+                <div class="striped" id="right-panel"></div>
+            </div>
         </div>
 
         <button class="waves-effect btn-large waves-circle waves-red btn-floating" id="mapDirection">Dir</button>
         <button class="waves-effect btn-large waves-circle waves-red btn-floating" id="mapClear">Remap</button>
+        <div class="row">
+            <div class="col m3"></div>
+            <div class="col m3 icon"></div>
+            <div class="col m3 weather"></div>
+            <div class="col m3"></div>
+        </div>
         <div class="row" id="locker-plate">
             <span></span>
             <span></span>
@@ -34,20 +83,23 @@
                 <button class="btn-floating btn-large waves-effect waves-light" id="reset">Reset</button>
             </div>
         </form>
-    </div>    
-    
-    
-    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
     <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <script type="text/javascript" src="assets/javascript/weather.js"></script>
     <script type="text/javascript" src="assets/javascript/script.js"></script>
     <script type="text/javascript" src="assets/javascript/chatbox.js"></script>
     <script type="text/javascript" src="assets/javascript/db.js"></script>
+    <script type="text/javascript" src="assets/javascript/login.js"> </script>
+    <script type="text/javascript" src="assets/javascript/session.js"> </script>
 
- </body>
+</body>
 
 </html>

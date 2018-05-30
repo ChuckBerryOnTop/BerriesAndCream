@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lock.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Online Locker</title>
+</head>
+
+<body>
+        <div class="fixed-action-btn " >
+                <a class="btn-floating btn-large blue">
+                    <i class="large material-icons">explore</i>
+                </a>
+                <ul class="background-friendly">
+                    <li>
+                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream/issues" class="btn-floating pulse red">
+                            <i class="material-icons">bug_report</i>bugs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream" class="btn-floating yellow pulse  darken-1">
+                            <i class="material-icons">chevron_right</i>code
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream/commits/master" class="btn-floating pulse green">
+                            <i class="material-icons">timeline</i>history
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 style="text-align: center;">Dropoff Alert
+                <br>
+                <img src="assets/images/error.gif" alt="Smiley face" height="140" width="140">
+            </h4>
+
+            <p id="modal-message" style="text-align: center;">Message :</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cool</a>
+        </div>
+    </div>
+    <nav>
+            <div class="nav-wrapper container">
+                  
+            </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+
+
+        </div>
+        <div class="row" id="emailRow">
+            <div class="input-field inline col s12">
+
+                <label for="email_inline">Email</label>
+                <input id="email_inline" type="email" class="validate">
+            </div>
+        </div>
+
+        <div class="row" id="passwordRow">
+
+            <div class="input-field col s12">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="validate">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <a id="button-signup" class="waves-effect waves-light btn">
+                    <i class="material-icons left">cloud</i>Sign-Up</a>
+                <button id="button-submit" class="btn waves-effect waves-light" type="submit" name="action">Login
+                    <i class="material-icons right">send</i>
+                </button>
+                <button id="signin-google" class="btn waves-effect waves-light" type="submit" name="action">Google Auth
+                    <i class="material-icons right">vpn_lock</i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+    <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <script type="text/javascript" src="assets/javascript/login.js"> </script>
+    <script type="text/javascript" src="assets/javascript/session.js"> </script>
+</body>
+
+</html>

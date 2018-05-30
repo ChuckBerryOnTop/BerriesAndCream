@@ -14,7 +14,6 @@ body{
 	border: 1px solid #cfd3d6;
 	background: #ccc;
 	text-align: center;
-	width: 486px;
 	background: -webkit-linear-gradient(top, #eee 0%,#949ba0 100%);
 	background: linear-gradient(to bottom, #eee 0%,#949ba0 100%);
 	border-radius: 4px;
@@ -54,7 +53,7 @@ body{
 } 
 
 #locker-wrapper{
-	width: 396px;
+	width: 100%;
 	padding: 0 20px 0 8px;
 	border-radius: 7px;
 	height: 120px;
@@ -69,8 +68,8 @@ body{
 
 .locker-dial{
 	height: 120px;
-	width: 110px;
-	margin-left: 11px;
+    width: 20%;
+    margin-left: 10%;
 	background: -webkit-linear-gradient(top, #8c9093 0%,#b6babd 9%,#ccd2d6 18%,#ffffff 55%,#ccd2d6 82%,#b6babd 91%,#8c9093 100%);
 	background: linear-gradient(to bottom, #8c9093 0%,#b6babd 9%,#ccd2d6 18%,#ffffff 55%,#ccd2d6 82%,#b6babd 91%,#8c9093 100%);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -82,7 +81,6 @@ body{
 #locker-wrapper .locker-dial ul{
 	margin: 0;
 	padding: 0;
-	text-align: center;
 	list-style: none;
 	font-size: 53px;
 	line-height: 70px;
