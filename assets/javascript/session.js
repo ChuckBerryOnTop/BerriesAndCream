@@ -1,48 +1,49 @@
-//Helper function
-function getCurentFileName(){
-    var pagePathName= window.location.pathname;
+//Helper function to figure out what sub folder path we are on
+function getCurentFileName() {
+    var pagePathName = window.location.pathname;
     return pagePathName.substring(pagePathName.lastIndexOf("/") + 1);
 }
 
-function IsLoggedIn(){
-    var currentPath =  getCurentFileName();
-    if(localStorage.getItem("user-logged") == "false")
-    switch(currentPath)
-    {  
-        case "login.html":
-        {
-            //Do nothing cus we are already here
-        }
-        break;
 
-        case "index.html":
-        case "addUser.html":
-        case "lockerContents.html":
-        case "":
-        {
-            goToFrontPage();
+//This function is meant to serve as a checker to make sure a login user is on the correct place
+function IsLoggedIn() {
+    var currentPath = getCurentFileName();
+    var loginStatus = localStorage.getItem("user-logged");
+    //If not logged in
+    if (loginStatus == "false")
+        switch (currentPath) {
+            case "login.html":
+                {
+                    //Do nothing cus we are already here
+                }
+                break;
+            //Kick every one out to the front page
+            case "index.html":
+            case "addUser.html":
+            case "lockerContents.html":
+            case "":
+                {
+                    goToFrontPage();
+                }
+                break;
         }
-        break;
+
+    //If Logged in 
+    if (loginStatus == "true") {
+        switch (currentPath) {
+            case "login.html":
+                {
+                    goToUnlockPage();
+                }
+            case "lockerContents.html":
+                {
+                    if (localStorage.getItem("user") == null) {
+                        goToUnlockPage();
+                    }
+                }
+                break;
+
+
+        }
     }
-
-    if(localStorage.getItem("user-logged") == "true")
-    switch(currentPath)
-    {
-        case "login.html":
-        {
-            goToUnlockPage();
-        }
-        case "lockerContents.html":
-        {
-             if(localStorage.getItem("user") == null)
-             {
-                goToUnlockPage();
-             }
-        }
-        break;
-
-   
-    }
-
-
 }
