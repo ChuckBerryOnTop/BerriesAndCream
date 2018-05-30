@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Notify the browser
-notifyCurrentBrowser()
+//notifyCurrentBrowser()
 
 //This is use to submit a user name and password
 $("#button-submit").click(function () {
@@ -66,7 +66,8 @@ function displayModal(message) {
 }
 
 //Log-out button can log us out
-$("#logout-now").click(function () {
+$("#logout-now").click(function () {   
+    localStorage.setItem("user-logged", false);
     firebase.auth().signOut();
 });
 
@@ -99,7 +100,6 @@ $("#signin-google").click(function () {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("User is Logged in");
-
         $("#dynamicMenu").removeClass("hide");
         localStorage.setItem("user-logged", true);
     }
