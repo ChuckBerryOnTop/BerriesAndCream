@@ -76,17 +76,17 @@ function displayModal(message) {
 var loggedOutAlready = false;
 //Log-out button can log us out
 $("#logout-now").click(function () {
-    
-    firebase.auth().signOut().catch(function(error){
-            displayModal(error);// Do this
+
+    firebase.auth().signOut().catch(function (error) {
+        displayModal(error);// Do this
     });
-    firebase.auth().signOut().then(function(success){
-        
+    firebase.auth().signOut().then(function (success) {
+
         localStorage.clear();
         localStorage.setItem("user-logged", false);
-   
-});
-       
+
+    });
+
 });
 
 //This is for the google Auth
@@ -112,34 +112,36 @@ $("#signin-google").click(function () {
         // ...
     });
 });
+$(document).ready(function () {
 
- 
-//Firebase event handler that asynch updates our session based on the login status both internal and google auth
-firebase.auth().onAuthStateChanged(firebaseUser => {
-   try{
-    if (firebaseUser ) {
-        console.log("User is Logged in");
-        $("#dynamicMenu").removeClass("hide");
-        localStorage.setItem("user-logged", true);
+    //Firebase event handler that asynch updates our session based on the login status both internal and google auth
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        try {
+            if (firebaseUser) {
+                console.log("User is Logged in");
+                $("#dynamicMenu").removeClass("hide");
+                localStorage.setItem("user-logged", true);
 
-    }
-    else {
-        console.log("User is Not-Logged in");
-        localStorage.setItem("user-logged", false);
-    }
-    IsLoggedIn();
-    }catch(error){
-        console.log(error);
+            }
+            else {
+                console.log("User is Not-Logged in");
+                localStorage.setItem("user-logged", false);
+            }
+            IsLoggedIn();
+        } catch (error) {
+            console.log(error);
 
-    }
+        }
+    });
+
+    firebase.auth().onIdTokenChanged(function (user) {
+        if (user) {
+            // User is signed in or token was refreshed.
+        }
+        else {
+            console.log("User is Not-Logged in");
+            localStorage.setItem("user-logged", false);
+        }
+    });
 });
- 
-firebase.auth().onIdTokenChanged(function(user) {
-    if (user) {
-      // User is signed in or token was refreshed.
-    }
-    else{
-        console.log("User is Not-Logged in");
-        localStorage.setItem("user-logged", false);
-    }
-  });
+
