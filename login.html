@@ -15,28 +15,28 @@
 </head>
 
 <body>
-        <div class="fixed-action-btn " >
-                <a class="btn-floating btn-large blue">
-                    <i class="large material-icons">explore</i>
+    <div class="fixed-action-btn ">
+        <a class="btn-floating btn-large blue">
+            <i class="large material-icons">explore</i>
+        </a>
+        <ul class="background-friendly">
+            <li>
+                <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream/issues" class="btn-floating pulse red">
+                    <i class="material-icons">bug_report</i>bugs
                 </a>
-                <ul class="background-friendly">
-                    <li>
-                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream/issues" class="btn-floating pulse red">
-                            <i class="material-icons">bug_report</i>bugs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream" class="btn-floating yellow pulse  darken-1">
-                            <i class="material-icons">chevron_right</i>code
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream/commits/master" class="btn-floating pulse green">
-                            <i class="material-icons">timeline</i>history
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            </li>
+            <li>
+                <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream" class="btn-floating yellow pulse  darken-1">
+                    <i class="material-icons">chevron_right</i>code
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream/commits/master" class="btn-floating pulse green">
+                    <i class="material-icons">timeline</i>history
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
@@ -53,45 +53,82 @@
         </div>
     </div>
     <nav>
-            <div class="nav-wrapper container">
-                  
-            </div>
+        <div class="nav-wrapper container">
+        </div>
     </nav>
-    <div class="container">
-        <div class="row">
 
+    <div class="wrapper">
 
+    
+
+        <div class="inner-wrapper">
+            <div class="landscape"></div>
         </div>
-        <div class="row" id="emailRow">
-            <div class="input-field inline col s12">
-
-                <label for="email_inline">Email</label>
-                <input id="email_inline" type="email" class="validate">
+        <div class="inner-wrapper">
+                <div class="container">
+                    <div class="row">
+    
+    
+                    </div>
+                    <div class="row" id="emailRow">
+                        <div class="input-field inline col s12">
+    
+                            <label for="email_inline">Email</label>
+                            <input id="email_inline" type="email" class="validate">
+                        </div>
+                    </div>
+    
+                    <div class="row" id="passwordRow">
+    
+                        <div class="input-field col s12">
+                            <label for="password">Password</label>
+                            <input id="password" type="password" class="validate">
+                        </div>
+    
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <a id="button-signup" class="waves-effect waves-light btn">
+                                <i class="material-icons left">cloud</i>Sign-Up</a>
+                            <button id="button-submit" class="btn waves-effect waves-light" type="submit" name="action">Login
+                                <i class="material-icons right">send</i>
+                            </button>
+                            <button id="signin-google" class="btn waves-effect waves-light" type="submit" name="action">Google Auth
+                                <i class="material-icons right">vpn_lock</i>
+                            </button>
+    
+                        </div>
+                    </div>
+    
+                </div>
             </div>
+
+
+        <div class="nrw">
+            <span class="new">
+                <span class="letter">T</span>
+                <span class="letter">H</span>
+                <span class="letter">E</span>
+            </span>
+            <span class="retro">
+                <span class="letter">D</span>
+                <span class="letter">R</span>
+                <span class="letter">O</span>
+                <span class="letter">P</span>
+                <span class="letter">-</span>
+                <span class="letter">O</span>
+                <span class="letter">F</span>
+                <span class="letter">F</span>
+            </span>
+            <span class="wave">
+                <span class="letter">A</span>
+                <span class="letter">P</span>
+                <span class="letter">P</span>
+            </span>
         </div>
-
-        <div class="row" id="passwordRow">
-
-            <div class="input-field col s12">
-                <label for="password">Password</label>
-                <input id="password" type="password" class="validate">
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <a id="button-signup" class="waves-effect waves-light btn">
-                    <i class="material-icons left">cloud</i>Sign-Up</a>
-                <button id="button-submit" class="btn waves-effect waves-light" type="submit" name="action">Login
-                    <i class="material-icons right">send</i>
-                </button>
-                <button id="signin-google" class="btn waves-effect waves-light" type="submit" name="action">Google Auth
-                    <i class="material-icons right">vpn_lock</i>
-                </button>
-            </div>
-        </div>
-
+        <div class="triangle"></div>
     </div>
+
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>

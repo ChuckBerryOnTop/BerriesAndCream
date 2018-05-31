@@ -97,3 +97,8 @@ body{
 	color: green;
 	text-shadow: 0 0 5px #3f3;
 }
+
+
+.input-field>label {
+	color: black;
+}
