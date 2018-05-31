@@ -88,8 +88,7 @@ $("#logout-now").click(function () {
 
         localStorage.clear();
         localStorage.setItem("user-logged", false);
-        doUpdate();
-
+        window.location.href = document.URL;
     });
 
 });
@@ -149,24 +148,3 @@ $(document).ready(function () {
         }
     });
 });
-
-function doUpdate(){
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        try {
-            if (firebaseUser) {
-                console.log("User is Logged in");
-                $("#dynamicMenu").removeClass("hide");
-                localStorage.setItem("user-logged", true);
-
-            }
-            else {
-                console.log("User is Not-Logged in");
-                localStorage.setItem("user-logged", false);
-            }
-            IsLoggedIn();
-        } catch (error) {
-            console.log(error);
-
-        }
-    });
-}
