@@ -3,27 +3,6 @@
 $('.modal').modal();
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    //Firebase event handler that asynch updates our session based on the login status both internal and google auth
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        try {
-            if (firebaseUser) {
-                console.log("User is Logged in");
-                $("#dynamicMenu").removeClass("hide");
-                localStorage.setItem("user-logged", true);
-
-            }
-            else {
-                console.log("User is Not-Logged in");
-                localStorage.setItem("user-logged", false);
-            }
-            IsLoggedIn();
-        } catch (error) {
-            console.log(error);
-
-        }
-    });
-});
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');

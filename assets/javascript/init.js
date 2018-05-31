@@ -45,7 +45,7 @@ function notifyCurrentBrowser() {
     var browser_name = '';
     isIE = /*@cc_on!@*/false || !!document.documentMode;
     isEdge = !isIE && !!window.StyleMedia;
-    if (navigator.userAgent.indexOf("Chrome") != -1 && !isEdge  ) {
+    if (navigator.userAgent.indexOf("Chrome") != -1 && !isEdge) {
         browser_name = 'chrome';
     }
     else if (navigator.userAgent.indexOf("Safari") != -1 && !isEdge) {
@@ -68,9 +68,29 @@ function notifyCurrentBrowser() {
         browser_name = 'other-browser';
     }
 
-    if(browser_name != 'chrome' && browser_name != 'firefox')
-    {
-        displayModal("Debug ["+navigator.userAgent+"] Your browser "+ browser_name + " is not Compatible Be Aware of Wierd side effects");
+    if (browser_name != 'chrome' && browser_name != 'firefox') {
+        displayModal("Debug [" + navigator.userAgent + "] Your browser " + browser_name + " is not Compatible Be Aware of Wierd side effects");
     }
 
 }
+
+
+//Firebase event handler that asynch updates our session based on the login status both internal and google auth
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    try {
+        if (firebaseUser) {
+            console.log("User is Logged in");
+            $("#dynamicMenu").removeClass("hide");
+            localStorage.setItem("user-logged", true);
+
+        }
+        else {
+            console.log("User is Not-Logged in");
+            localStorage.setItem("user-logged", false);
+        }
+        IsLoggedIn();
+    } catch (error) {
+        console.log(error);
+
+    }
+});
