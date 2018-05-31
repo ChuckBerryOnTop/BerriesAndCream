@@ -38,19 +38,18 @@ $("#button-submit").click(function () {
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
     promise.then(function (firebaseUser) {
-        doUpdate();
-
+        localStorage.setItem("user-logged", true);
     });
 });
 
-$(document).ready(function () {
+
     //Firebase event handler that asynch updates our session based on the login status both internal and google auth
     firebase.auth().onAuthStateChanged(firebaseUser => {
         try {
             if (firebaseUser) {
                 console.log("User is Logged in");
                 $("#dynamicMenu").removeClass("hide");
-                localStorage.setItem("user-logged", true);
+               // localStorage.setItem("user-logged", true);
 
             }
             else {
@@ -64,8 +63,7 @@ $(document).ready(function () {
         }
     });
 
-    
-});
+
 //On a the button click to signup
 $("#button-signup").click(function () {
 
