@@ -2,6 +2,29 @@
 // have to initialize first for modals to work
 $('.modal').modal();
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    //Firebase event handler that asynch updates our session based on the login status both internal and google auth
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        try {
+            if (firebaseUser) {
+                console.log("User is Logged in");
+                $("#dynamicMenu").removeClass("hide");
+                localStorage.setItem("user-logged", true);
+
+            }
+            else {
+                console.log("User is Not-Logged in");
+                localStorage.setItem("user-logged", false);
+            }
+            IsLoggedIn();
+        } catch (error) {
+            console.log(error);
+
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
@@ -37,31 +60,9 @@ $("#button-submit").click(function () {
 
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
-    promise.then(function (firebaseUser) {
-        localStorage.setItem("user-logged", true);
-    });
+  
 });
 
-
-    //Firebase event handler that asynch updates our session based on the login status both internal and google auth
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        try {
-            if (firebaseUser) {
-                console.log("User is Logged in");
-                $("#dynamicMenu").removeClass("hide");
-               // localStorage.setItem("user-logged", true);
-
-            }
-            else {
-                console.log("User is Not-Logged in");
-                localStorage.setItem("user-logged", false);
-            }
-            IsLoggedIn();
-        } catch (error) {
-            console.log(error);
-
-        }
-    });
 
 
 //On a the button click to signup
@@ -85,7 +86,7 @@ $("#button-signup").click(function () {
     promise.then(function (firebaseUser) {
         //I don't know if the next statement is necessary 
         firebase.auth().signOut();
-        firebase.sharedInstance().signOut();
+        
     });
 
 });
@@ -95,22 +96,16 @@ function displayModal(message) {
     $('#modal-message').html(message);
     $('#modal1').modal('open');
 }
-var loggedOutAlready = false;
-
 
 //Log-out button can log us out
 $("#logout-now").click(function () {
 
-    firebase.auth().signOut().catch(function (error) {
-        displayModal(error);// Do this
-        console.log(error);
-    });
-    firebase.auth().signOut().then(function (success) {
-
-        localStorage.clear();
-        localStorage.setItem("user-logged", false);
-        window.location.href = document.URL;
-    });
+    const auth = firebase.auth();
+    // auth.signOut().catch(function (error) {
+    //     displayModal(error);// Do this
+    //     console.log(error);
+    // });
+    auth.signOut();
 
 });
 
