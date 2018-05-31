@@ -24,12 +24,17 @@
 	
 }
 
+body{
+	width: 100%
+}
 .container{
 	widows: 100%;
+
 }
 
 nav{
 	height: 90px;
+	width: 140%;
 }
 
 #right-panel {
@@ -70,11 +75,6 @@ li > a{
  }
 
 
- /*
-@author Jack Philippi
-@description My way of paying homage to @NewRetroWave and the outrun community. I don't own any rights to the NewRetroWave logo or name - I just love the music 🌱
-*/
-  
 @font-face {
 	font-family: OutRun;
 	src: url("https://jackphilippi.com.au/cdn/fonts/outrun_future.otf") format("opentype");
@@ -82,8 +82,10 @@ li > a{
   
   html, body {
 	height: 100%;
-	/* overflow: hidden; */
-  }
+	/*overflow: hidden; */
+
+ 
+}
    
   body {
 	text-align: center;
@@ -91,7 +93,8 @@ li > a{
 	-webkit-font-smoothing: antialiased;
 	background: #111;
 	background: linear-gradient(#0c141f 40%, #cf33d9 41%, #0c141f 60%);
-  }
+	overflow-x: hidden;
+	}
    
   .wrapper {
 	display: flex;
@@ -122,8 +125,8 @@ li > a{
   }
    
   .nrw {
-	z-index: -1;
-    margin-top: 140px;
+	 z-index: -1;
+    margin-top: 250px;
   }
    
   .triangle {
@@ -215,4 +218,23 @@ li > a{
 }
 .btn{
 		background-color: #18191a;
+}
+
+/* label focus color */
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly])
+{
+	
+	border-bottom: 1px solid  #FA26F7!important;
+	box-shadow: 0 1px 0 0 #FA26F7!important;
+}
+ 
+input[type=text].valid:not(.browser-default),
+input[type=email].valid:not(.browser-default),
+input[type=number].valid:not(.browser-default),
+input[type=password].valid:not(.browser-default){
+	border-bottom: 1px solid rgb(37, 125, 228)!important;
+	box-shadow: 0 1px 0 0 rgb(37, 125, 228)!important;
 }
