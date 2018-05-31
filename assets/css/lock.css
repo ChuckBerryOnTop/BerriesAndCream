@@ -2,11 +2,11 @@
 
 body{
 	font-family: 'Libre Baskerville', serif;
-	/* background-color: #eee;
+	background-color: #eee;
 	background-image: linear-gradient(-45deg, #fff 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, #fff 50%, #fff 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
 	-webkit-background-size: 4px 4px;
 	-moz-background-size: 4px 4px;
-	background-size: 4px 4px; */
+	background-size: 4px 4px;
 }
 
 #locker-plate{
@@ -96,4 +96,9 @@ body{
 #locker-wrapper.unlocked .locker-dial ul{
 	color: green;
 	text-shadow: 0 0 5px #3f3;
+}
+
+
+.input-field>label {
+	color: black;
 }
