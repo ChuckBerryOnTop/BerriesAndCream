@@ -37,7 +37,10 @@ $("#button-submit").click(function () {
 
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
+  
 });
+
+
 
 //On a the button click to signup
 $("#button-signup").click(function () {
@@ -57,10 +60,10 @@ $("#button-signup").click(function () {
     console.log(txtEmail, txtPassword);
     const promise = auth.createUserWithEmailAndPassword(txtEmail, txtPassword);
     promise.catch(function (error) { displayModal(error.message) });
-    promise.then(function(firebaseUser) {
+    promise.then(function (firebaseUser) {
         //I don't know if the next statement is necessary 
         firebase.auth().signOut();
-        firebase.sharedInstance().signOut();
+        
     });
 
 });
@@ -72,11 +75,15 @@ function displayModal(message) {
 }
 
 //Log-out button can log us out
-$("#logout-now").click(function () {   
-    localStorage.setItem("user-logged", false);
-    localStorage.clear();
-    firebase.auth().signOut();
-    firebase.sharedInstance().signOut();
+$("#logout-now").click(function () {
+
+    const auth = firebase.auth();
+    // auth.signOut().catch(function (error) {
+    //     displayModal(error);// Do this
+    //     console.log(error);
+    // });
+    auth.signOut();
+
 });
 
 //This is for the google Auth
@@ -101,21 +108,5 @@ $("#signin-google").click(function () {
         var credential = error.credential;
         // ...
     });
-});
-
-
-//Firebase event handler that asynch updates our session based on the login status both internal and google auth
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        console.log("User is Logged in");
-        $("#dynamicMenu").removeClass("hide");
-        localStorage.setItem("user-logged", true);
-    }
-    else {
-        console.log("User is Not-Logged in");
-        localStorage.setItem("user-logged", false);
-    }
-    IsLoggedIn();
-
 });
 

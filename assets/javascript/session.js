@@ -10,7 +10,7 @@ function IsLoggedIn() {
     var currentPath = getCurentFileName();
     var loginStatus = localStorage.getItem("user-logged");
     //If not logged in
-    if (loginStatus == "false")
+    if (loginStatus == "false" || loginStatus == null)
         switch (currentPath) {
             case "login.html":
                 {
@@ -29,7 +29,7 @@ function IsLoggedIn() {
         }
 
     //If Logged in 
-    if (loginStatus == "true") {
+    else if (loginStatus == "true") {
         switch (currentPath) {
             case "login.html":
                 {
@@ -45,5 +45,8 @@ function IsLoggedIn() {
 
 
         }
+    }
+    else{
+        goToFrontPage();
     }
 }
