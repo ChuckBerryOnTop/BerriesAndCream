@@ -38,8 +38,7 @@ $("#button-submit").click(function () {
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
     promise.then(function (firebaseUser) {
-        doUpdate();
-
+        localStorage.setItem("user-logged", true);
     });
 });
 
@@ -50,7 +49,7 @@ $("#button-submit").click(function () {
             if (firebaseUser) {
                 console.log("User is Logged in");
                 $("#dynamicMenu").removeClass("hide");
-                localStorage.setItem("user-logged", true);
+               // localStorage.setItem("user-logged", true);
 
             }
             else {
