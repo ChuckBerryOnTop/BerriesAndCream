@@ -74,6 +74,22 @@ function notifyCurrentBrowser() {
 
 }
 
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(function() {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+
+
+
 
 //Firebase event handler that asynch updates our session based on the login status both internal and google auth
 firebase.auth().onAuthStateChanged(firebaseUser => {
