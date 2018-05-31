@@ -38,6 +38,7 @@ $("#button-submit").click(function () {
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
     promise.then(function (firebaseUser) {
+        doUpdate();
 
     });
 });
@@ -74,16 +75,20 @@ function displayModal(message) {
     $('#modal1').modal('open');
 }
 var loggedOutAlready = false;
+
+
 //Log-out button can log us out
 $("#logout-now").click(function () {
 
     firebase.auth().signOut().catch(function (error) {
         displayModal(error);// Do this
+        console.log(error);
     });
     firebase.auth().signOut().then(function (success) {
 
         localStorage.clear();
         localStorage.setItem("user-logged", false);
+        doUpdate();
 
     });
 
@@ -112,8 +117,8 @@ $("#signin-google").click(function () {
         // ...
     });
 });
-$(document).ready(function () {
 
+$(document).ready(function () {
     //Firebase event handler that asynch updates our session based on the login status both internal and google auth
     firebase.auth().onAuthStateChanged(firebaseUser => {
         try {
@@ -145,3 +150,23 @@ $(document).ready(function () {
     });
 });
 
+function doUpdate(){
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        try {
+            if (firebaseUser) {
+                console.log("User is Logged in");
+                $("#dynamicMenu").removeClass("hide");
+                localStorage.setItem("user-logged", true);
+
+            }
+            else {
+                console.log("User is Not-Logged in");
+                localStorage.setItem("user-logged", false);
+            }
+            IsLoggedIn();
+        } catch (error) {
+            console.log(error);
+
+        }
+    });
+}
