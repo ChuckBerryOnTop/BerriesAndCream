@@ -114,6 +114,10 @@ li > a{
 	background-color: #f1f1f1;
 	border: 1px solid #d3d3d3;
 	text-align: center;
+	/*float: right;*/
+	/*right: 10px;*/
+	/*bottom: 10px;*/
+	margin-right: 10px;
  }
  #dragboxheader {
 	padding: 10px;

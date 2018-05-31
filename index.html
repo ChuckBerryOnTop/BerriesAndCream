@@ -43,10 +43,16 @@
                         </a>
                     </li>
 
-                    <li>
+                    <!--<li>
                         <iframe src="./vidWall.html" class="btn-floating blue darken-1 pulse" target = >
                             <i class="material-icons">video_library</i>code
                         </iframe>
+                    </li>-->
+                    <li>
+                            <a onclick="hideShow()"  class="btn-floating purple darken-1 pulse">
+                                <i class="material-icons">chevron_right</i>video
+                            </a>
+
                     </li>
                    <!--<li>
                         <div class="fixed-action-btn hide" id="dynamicMenu">
@@ -74,14 +80,14 @@
     </div> -->    
 
    
-    <div class="fixed-action-btn horizontal float2" style="bottom: 45px; right: 24px;">
+   <!-- <div class="fixed-action-btn horizontal float2" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large red">
               <i class="large material-icons">mode_edit</i>Test
             </a>
            
             <ul class="background-friendly">
               <li>
-                   <iframe height="300px" width="100%" src="./vidWall.html#links" name="iframe_a"></iframe>></iframe>
+                   <iframe height="300px" width="100%" src="./vidWall.html#links" name="iframe_a"></iframe>></iframe>-->
                  <!-- <a class="btn-floating red darken-1 pulse"><i class="material-icons">insert_chart</i>test
                     <div class="fixed-action-btn horizontal floatButt" id = "dynamicMenu" > 
                     
@@ -96,15 +102,15 @@
                     </div>    
                 </a></li>
               <li>-->
-                 <a class="btn-floating green darken-1 pulse hide"><i class="material-icons">publish</i>Array
+                 <!--<a class="btn-floating green darken-1 pulse hide"><i class="material-icons">publish</i>Array
                 
-                </a></li>
+                </a></li>-->
               <!--<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>-->
-            </ul>
-          </div>
+            <!--</ul>
+          </div>-->
      <!--<iframe height="400px" width="60%" src="./vidWallPlayer.html" name="iframe_a"></iframe>-->
     
-     <div class="fixed-action-btn horizontal floatSub" style="bottom: 45px; right: 24px;">
+     <!--<div class="fixed-action-btn horizontal floatSub" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large green hide">
               <i class="large material-icons">mode_edit</i>Test
             
@@ -118,12 +124,8 @@
                 </li>
             
             </ul>  
-    </div>
-    <div id="dragbox">
-        <!--<div id="vid"></div>-->
-        <iframe height="260px" width="100%" src="./vidWall.html#vid" name="iframeVid" ></iframe>
-        <div id="dragboxheader">Drag Me</div>
-    </div>
+    </div>-->
+    
     <!--<iframe height="300px" width="100%" src="./vidWallPlayer.html" name="iframe_a" id="dragbox"></iframe>
             <div id="vid"></div>
             <div id="dragboxheader">
@@ -195,6 +197,11 @@
         </div>
 
     </div>-->
+    <div id="dragbox" class="hide">
+            <!--<div id="vid"></div>-->
+            <iframe height="260px" width="100%" src="./vidWall.html#vid" name="iframeVid" ></iframe>
+            <div id="dragboxheader">Drag Me</div>
+        </div>
     <iframe height="1000px" width="100%" src="./lockerIndex.html" name="iframeIndex" ></iframe>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -212,7 +219,20 @@
     <script type="text/javascript" src="assets/javascript/vidWall.js"> </script>
 
     <script>
-        //get the iframe
+
+function hideShow() {
+    if ($('#dragbox').hasClass('hide') ) {
+        $("#dragbox").removeClass('hide');
+    } else { $("#dragbox").addClass("hide");
+
+    }    
+}
+
+
+
+
+
+//get the iframe
 var iframe = document.getElementById("iframeSub");
 
 //For ex; say you have a button called mybutton in thispage.html page
