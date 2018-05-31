@@ -1,6 +1,7 @@
 body {
     font-family: "Serif";
     font-size: 19px; 
+    background: white;
 }
 
 .link:hover {
@@ -21,7 +22,8 @@ tr {
     margin: 5px;
     padding: 2px;
     font-size: 26px;
-    box-shadow: 5px 5px #503f
+    box-shadow: 5px 5px #503f;
+    /*width: 250px;*/
 }
 .arr {
     
@@ -47,4 +49,13 @@ tr {
 }
 .close {
     color: rgba(32, 181, 201, 0.336);
+}
+
+#vid {
+     width: 250px;
+     height: 250px;
+
+}
+#autop {
+    width: 100px;
 }

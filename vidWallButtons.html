@@ -15,66 +15,29 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class='col s6'>
-        <form action="videos" id="entry">
-            <div>YoutubeID </div>
-                <input type="text" id="input-id">
-        <!-- <button id="submit">Submit</button>-->
-            
-                <div>Name</div>
-                <input type="text" id="input-name">
-            
-
-                </form>
-            
-             </div>
-             <div class="col s4"> 
-                <div id="autop">Autoplay:
-                    <div class="input-field col s12">
-                        <select id="auto" class="browser-default waves-effect waves-light btn"> 
-                        <option>On</option>
-                        <option>Off</option>
-                    </select>
-                    <!--<label>Materialize Select</label>-->
-                    </div>
-                </div>
-                <button id="button" onclick='getButtons(count)' class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-        </div>        
-    </div>
-        
-<div class="row">
-    <div class='col s6'>
-        <div id="vid"></div>
-    </div>
-</div>    
-<div class="row">
-          
-        
-</div>    
-
+   
 <div class="row">    
     <div class='col s10'>
       <!--  <button id="button" onclick='getButtons(count)' class="btn waves-effect waves-light" type="submit" name="action">Submit</button>-->
         <table id="links">
             <tbody></tbody>
         </table>
-        <div id="count">0</div>
+        <!--<div id="count">0</div>-->
         
     </div>
-    <div class="col s2">
+   <!-- <div class="col s2">
             
         <div class="arr card-panel"><p>Array</p>
         </div>
           
-    </div>
+    </div>-->
     <!--<div class="col s1 col-md-offset-3">
             &nbsp;
     </div>-->
     </div>
 </div>
-<div class="test"></div>
-</div>
+<!--<div class="test"></div>
+</div>-->
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script src = "assets/javascript/vidWall.js"></script>
 </body>

@@ -8,10 +8,6 @@ var config = {
   };
   firebase.initializeApp(config);
 
-$(document).ready(function() {
-    $('select').material_select();
-});
-  
 const dbRef = firebase.database().ref();
 const ytRef = dbRef.child('YT');
 const ctRef = dbRef.child('ct');
@@ -160,7 +156,7 @@ function getButtons() {
     
     var id = $('#input-id').val();
     var name = $('#input-name').val();
-    //console.log(id);
+    console.log(id);
     count++; 
     var auto = $('#auto').val();
     if (auto == 'On') {
@@ -278,19 +274,6 @@ function storeButtons(count, id, name) {
   
     total.arr.push({count, id, name});
     console.log(total);
-    ytRef.once("child_added", function(snap) {
-        var val = snap.val
-        var thisId = val.id
-        console.log(val)
-        console.log(thisId)
-        if (auto == 'On') {
-            player.cueVideoById(thisId) 
-            player.playVideo();
-        }    
-
-
-    })
-   
     //temp.push(count);
    // console.log(temp);
     //ytRef.push({total : total.arr})
