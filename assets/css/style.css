@@ -126,3 +126,10 @@ li > a{
 	background-color: #2196F3;
 	color: #fff;
  }
+ #divc {
+	position: relative; 
+	float: right;
+	 right: 100px;
+	 width: 300px;
+	 top: 300px;
+ }
