@@ -43,7 +43,7 @@ $("#button-submit").click(function () {
     });
 });
 
-$(document).ready(function () {
+
     //Firebase event handler that asynch updates our session based on the login status both internal and google auth
     firebase.auth().onAuthStateChanged(firebaseUser => {
         try {
@@ -64,8 +64,7 @@ $(document).ready(function () {
         }
     });
 
-    
-});
+
 //On a the button click to signup
 $("#button-signup").click(function () {
 
