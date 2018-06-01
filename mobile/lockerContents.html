@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lock.css">
+    <link rel="stylesheet" href="assets/css/locker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Online Locker</title>
+</head>
+
+<body  id="iframeIndex">    
+        <div class="scene">
+                <div class="wrap">
+                    <div class="wall wall-right"></div>
+                    <div class="wall wall-left"></div>   
+                    <div class="wall wall-top"></div>
+                    <div class="wall wall-bottom"></div> 
+                    <div class="wall wall-back"></div>    
+                </div>
+                <div class="wrap">
+                    <div class="wall wall-right"></div>
+                    <div class="wall wall-left"></div>   
+                    <div class="wall wall-top"></div>
+                    <div class="wall wall-bottom"></div>   
+                    <div class="wall wall-back"></div>    
+                </div>
+              </div>  
+    <div class="main-area container-fluid">
+        <div class="row">
+            <div class="col m12 s12">
+                <div id="map">
+
+                </div>
+                <div class="striped" id="right-panel"></div>
+            </div>
+        </div>
+
+        <button class="waves-effect btn-large waves-circle waves-light btn-floating" id="mapDirection">Dir</button>
+        <button class="waves-effect btn-large waves-circle waves-light btn-floating" id="mapClear">Map</button>
+        <div class="row yahoo">
+            <div class="col m4 icon"></div>
+            <div class="col m4 weather"></div>
+            <div class="col m4">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_donations">
+                        <input type="hidden" name="business" value="asilva2191@gmail.com">
+                        <input type="hidden" name="lc" value="US">
+                        <input type="hidden" name="item_name" value="The Drop Off">
+                        <input type="hidden" name="no_note" value="0">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+            </div>
+        </div>
+        <div class="row" id="locker-plate">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="row main-screen" id="text-box"></div>
+        </div>
+        <form class="row">
+            <div class="form-group row">
+                <input class="form-control textBar" id="text-input" type="text" placeholder="Type here...">
+                <button class="btn-floating btn-large waves-effect waves-light" id="submission" type="submit">Ent</button>
+                <button class="btn-floating btn-large waves-effect waves-light" id="reset">Clr</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <script type="text/javascript" src="assets/javascript/weather.js"></script>
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
+    <script type="text/javascript" src="assets/javascript/chatbox.js"></script>
+    <script type="text/javascript" src="assets/javascript/db.js"></script>
+    <script type="text/javascript" src="assets/javascript/login.js"> </script>
+    <script type="text/javascript" src="assets/javascript/session.js"> </script>
+
+</body>
+
+</html>
