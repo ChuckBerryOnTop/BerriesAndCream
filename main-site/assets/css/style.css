@@ -54,7 +54,7 @@ overflow: auto;
 .fixed-action-btn {
 position: fixed;
 top: 6.28px;
-	right: 23px;
+	right: 5%;
 	bottom: unset !important;
 	padding-top: 15px;
 	margin-bottom: 0;
