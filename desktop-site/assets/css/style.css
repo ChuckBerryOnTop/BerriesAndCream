@@ -76,8 +76,6 @@ src: url("https://jackphilippi.com.au/cdn/fonts/outrun_future.otf") format("open
 html, body {
 height: 100%;
 /* overflow: hidden; */
-
-
 }
  
 body {
@@ -87,6 +85,7 @@ font-family: "Open Sans", sans-serif;
 background: #111;
 background: linear-gradient(#0c141f 40%, #cf33d9 41%, #0c141f 60%);
 overflow-x: hidden;
+overflow-y: hidden;
 }
  
 .wrapper {
@@ -230,4 +229,35 @@ input[type=number].valid:not(.browser-default),
 input[type=password].valid:not(.browser-default){
 border-bottom: 1px solid rgb(37, 125, 228)!important;
 box-shadow: 0 1px 0 0 rgb(37, 125, 228)!important;
+}
+
+#dragbox {
+	position: absolute;
+	z-index: 9;
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	text-align: center;
+	/*float: right;*/
+	/*right: 10px;*/
+	/*bottom: 10px;*/
+	margin-right: 10px;
+ }
+ #dragboxheader {
+	padding: 10px;
+	cursor: move;
+	z-index: 10;
+	background-color: #2196F3;
+	color: #fff;
+ }
+ #divc {
+	position: relative; 
+	float: right;
+	 right: 100px;
+	 width: 300px;
+	 top: 300px;
+ }
+
+
+#iframeIndex{
+	overflow-y: scroll;
 }
