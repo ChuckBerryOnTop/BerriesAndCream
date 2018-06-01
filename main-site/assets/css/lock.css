@@ -65,6 +65,7 @@ body{
 	margin: 0 auto;
 }
 
+
 .locker-dial{
 	height: 120px;
     width: 20%;
@@ -91,6 +92,12 @@ body{
 	transition: box-shadow .45s linear, color .25s linear;
 	-webkit-transition: box-shadow .45s linear, color .25s linear;
 }
+
+#locker-wrapper.unlocked .locker-dial ul{
+	color: green;
+	text-shadow: 0 0 5px #3f3;
+}
+
 
 .input-field>label {
 	color: black;

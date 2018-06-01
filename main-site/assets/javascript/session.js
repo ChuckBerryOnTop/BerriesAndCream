@@ -4,7 +4,7 @@ function getCurentFileName() {
     return pagePathName.substring(pagePathName.lastIndexOf("/") + 1);
 }
 
-//This is  great practise
+
 //This function is meant to serve as a checker to make sure a login user is on the correct place
 function IsLoggedIn() {
     var currentPath = getCurentFileName();

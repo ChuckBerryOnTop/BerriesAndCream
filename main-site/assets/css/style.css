@@ -19,7 +19,9 @@ font-family: 'Orbitron', sans-serif;
 
 .weather, .icon {
 	color: #4db6ac;
+
 }
+
 
 nav{
 height: 90px;
@@ -59,12 +61,13 @@ top: 6.28px;
 	z-index: 997;
 }
 
-li > a{
+li > a,label{
  color:#cf34da !important;
  font-family: 'Orbitron', sans-serif;
  font-weight:bold;
 
 }
+
 
 @font-face {
 font-family: OutRun;
@@ -73,6 +76,9 @@ src: url("https://jackphilippi.com.au/cdn/fonts/outrun_future.otf") format("open
 
 html, body {
 height: 100%;
+/* overflow: hidden; */
+
+
 }
  
 body {
@@ -113,8 +119,8 @@ transform: rotateX(85deg);
 }
  
 .nrw {
- z-index: -1;
-	margin-top: 250px;
+ z-index: 0;
+ margin-top: 250px;
 }
  
 .triangle {
@@ -144,7 +150,6 @@ transform: rotate(-10deg) skew(-20deg);
 margin-left: -100px;
 margin-bottom: -36px;
 }
-
 .new > .letter {
 -webkit-text-stroke: 2px #F4C6F4;
 margin-top: -8px;
@@ -164,7 +169,6 @@ animation: glow 2.5s linear infinite;
 	filter: drop-shadow(0 0 6px #CF33D9) drop-shadow(0 0 6px #CF33D9);
 }
 }
-
 .retro {
 font-size: 5.5em;
 font-weight: 800;
@@ -174,7 +178,6 @@ letter-spacing: -12px;
 transform: rotate(-10deg) skew(-10deg);
 margin-bottom: -20px;
 }
-
 .retro > .letter {
 display: inline-block;
 padding: 0 10px;
@@ -202,11 +205,9 @@ transform: rotate(-3deg) skew(-3deg);
 }
 
 nav {
-
     color: #fff;
     background-color: #dfe4e8;
     border-bottom: 5px solid #2780e757;
-
 }
 
 .btn{
@@ -236,3 +237,16 @@ box-shadow: 0 1px 0 0 rgb(37, 125, 228)!important;
 .btn:hover, .btn-large:hover, .btn-small:hover {
     background-color:rgb(207, 52, 218);
 }
+
+@media (max-width:320px)   /*,  smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+/* (min-width:480px)   /* ,smartphones, Android phones, landscape iPhone */ 
+/*(min-width:600px)   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+/*(min-width:801px)  , /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+/*(min-width:1025px) , /* big landscape tablets, laptops, and desktops */ 
+/*(min-width:1281px) */
+{
+	.nrw {
+		z-index: -1;
+	   }
+
+} /* hi-res laptops and desktops */ 

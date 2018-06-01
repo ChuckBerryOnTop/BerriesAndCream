@@ -1,8 +1,10 @@
 .wall{
 	background-size: cover;
 	/* background: url(https://i.ytimg.com/vi/rUQ6x6YzXSc/maxresdefault.jpg); */
-	background: url(../images/back.jpg);	
+	background: url(../images/back.jpg);
+	
 }
+
 
 .scene{
   display: inline-block;
@@ -10,6 +12,8 @@
   perspective: 5px;
   perspective-origin: 50% 50%;
 	position: relative;
+	
+	
 }
 
 .wrap{
@@ -85,11 +89,13 @@
   }
 }
 
+
 .yahoo {
 	z-index: 100;
     position: relative;
     margin-top: 2%;
 }
+
 
 .weather {
 	font-family: 'Orbitron', sans-serif;
@@ -103,14 +109,16 @@ button {
 	font-family: 'Orbitron', sans-serif;
 	z-index: 100 !important;
 	position:relative;
-	color:#4db6ac
+	 color:#4db6ac
  }
 
  input[type=text]:not(.browser-default):focus:not([readonly])
     {
-      border-bottom: 1px solid  #4db6ac!important;
-      box-shadow: 0 1px 0 0 #4db6ac!important;
-      }
+
+        border-bottom: 1px solid  #4db6ac!important;
+        box-shadow: 0 1px 0 0 #4db6ac!important;
+        
+ }
 
  #right-panel {
     z-index: 100 !important;
