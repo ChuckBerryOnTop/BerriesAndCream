@@ -2,19 +2,13 @@
 // have to initialize first for modals to work
 $('.modal').modal();
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.float1');
-//     var instances = M.FloatingActionButton.init(elems, {
-//         direction: 'left'
-//     });
-// });
-
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
         direction: 'left'
     });
 });
+
 //Notify the browser
 //notifyCurrentBrowser()
 
@@ -43,7 +37,10 @@ $("#button-submit").click(function () {
 
     //On fail it will display the fail error
     promise.catch(function (error) { displayModal(error.message) });
+  
 });
+
+
 
 //On a the button click to signup
 $("#button-signup").click(function () {
@@ -63,10 +60,10 @@ $("#button-signup").click(function () {
     console.log(txtEmail, txtPassword);
     const promise = auth.createUserWithEmailAndPassword(txtEmail, txtPassword);
     promise.catch(function (error) { displayModal(error.message) });
-    promise.then(function(firebaseUser) {
+    promise.then(function (firebaseUser) {
         //I don't know if the next statement is necessary 
         firebase.auth().signOut();
-        firebase.sharedInstance().signOut();
+        
     });
 
 });
@@ -78,11 +75,15 @@ function displayModal(message) {
 }
 
 //Log-out button can log us out
-$("#logout-now").click(function () {   
-    localStorage.setItem("user-logged", false);
-    localStorage.clear();
-    firebase.auth().signOut();
-    firebase.sharedInstance().signOut();
+$("#logout-now").click(function () {
+
+    const auth = firebase.auth();
+    // auth.signOut().catch(function (error) {
+    //     displayModal(error);// Do this
+    //     console.log(error);
+    // });
+    auth.signOut();
+
 });
 
 //This is for the google Auth
@@ -109,63 +110,3 @@ $("#signin-google").click(function () {
     });
 });
 
-
-//Firebase event handler that asynch updates our session based on the login status both internal and google auth
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        console.log("User is Logged in");
-        $("#dynamicMenu").removeClass("hide");
-        //$(".float2").removeClass("hide");
-       // $(".fixed-action-btn").removeClass("hide");
-        localStorage.setItem("user-logged", true);
-    }
-    else {
-        console.log("User is Not-Logged in");
-        localStorage.setItem("user-logged", false);
-    }
-    IsLoggedIn();
-
-});
-
-
-// //dragbox
-// dragElement(document.getElementById(("dragbox")));
-
-// function dragElement(elmnt) {
-//   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-//   if (document.getElementById(elmnt.id + "header")) {
-//     /* if present, the header is where you move the DIV from:*/
-//     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-//   } else {
-//     /* otherwise, move the DIV from anywhere inside the DIV:*/
-//     elmnt.onmousedown = dragMouseDown;
-//   }
-
-//   function dragMouseDown(e) {
-//     e = e || window.event;
-//     // get the mouse cursor position at startup:
-//     pos3 = e.clientX;
-//     pos4 = e.clientY;
-//     document.onmouseup = closeDragElement;
-//     // call a function whenever the cursor moves:
-//     document.onmousemove = elementDrag;
-//   }
-
-//   function elementDrag(e) {
-//     e = e || window.event;
-//     // calculate the new cursor position:
-//     pos1 = pos3 - e.clientX;
-//     pos2 = pos4 - e.clientY;
-//     pos3 = e.clientX;
-//     pos4 = e.clientY;
-//     // set the element's new position:
-//     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-//     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-//   }
-
-//   function closeDragElement() {
-//     /* stop moving when mouse button is released:*/
-//     document.onmouseup = null;
-//     document.onmousemove = null;
-//   }
-// }
