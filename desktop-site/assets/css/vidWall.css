@@ -1,0 +1,61 @@
+body {
+    font-family: "Serif";
+    font-size: 19px; 
+    background: white;
+}
+
+.link:hover {
+    background: lightskyblue;
+    color: white;
+
+}
+
+tr:hover {
+    background: lightblue;
+}
+
+tr {
+    width: 100%;
+}
+
+.link, .close {
+    margin: 5px;
+    padding: 2px;
+    font-size: 26px;
+    box-shadow: 5px 5px #503f;
+    /*width: 250px;*/
+}
+.arr {
+    
+    color: lightgrey;
+    font-family: cursive;
+    font-size: 22px;
+    padding: 10px;
+    justify-content: right;
+    display: block; 
+    background: rgba(24, 27, 27, 0.336);
+    z-index: -1;
+    position: fixed;   
+    }
+[class*="col-"] {
+    display: inline-block;
+    margin-right: -0.2em; /* small hack to fix inline block spacing */
+}
+.col-md-offset-3 {
+    margin-left: 25.98%; /* combined margin = default margin (4%) + col width (21.98%) */
+    content:"|&nbsp;&nbsp;";
+    content: "\007C\00a0\00a0";
+    width: 80%;
+}
+.close {
+    color: rgba(32, 181, 201, 0.336);
+}
+
+#vid {
+     width: 250px;
+     height: 250px;
+
+}
+#autop {
+    width: 100px;
+}
