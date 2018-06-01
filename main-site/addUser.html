@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lock.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Locker Setup</title>
+</head>
+
+<body>
+    <div class="fixed-action-btn hide" id="dynamicMenu">
+        <a class="btn-floating btn-large blue  z-depth-5">
+            <i class="large material-icons">explore</i>
+        </a>
+        <ul >
+                <li>
+                        <a href="./index.html" class="btn-floating amber pulse  z-depth-2">
+                            <i class="material-icons">enhanced_encryption</i>lock
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./addUser.html" class="btn-floating orange darken-1 pulse  z-depth-3">
+                            <i class="material-icons">speaker_notes</i>add
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" id="logout-now" class="btn-floating green darken-1 pulse  z-depth-4">
+                            <i class="material-icons">lock_open</i>logout
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://github.com/ChuckBerryOnTop/BerriesAndCream" class="btn-floating cyan darken-1 pulse  z-depth-5">
+                            <i class="material-icons">chevron_right</i>code
+                        </a>
+                    </li>
+        </ul>
+    </div>
+    <nav class="z-depth-2">
+        <div class="nav-wrapper container ">
+        </div>
+    </nav>
+    <div id="modal1" class="modal z-depth-3">
+        <div class="modal-content">
+            <h4 style="text-align: center;">Dropoff Alert
+                <br>
+                <img src="assets/images/error.gif" alt="Smiley face" height="140" width="140">
+            </h4>
+
+            <p id="modal-message" style="text-align: center;">Message :</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cool</a>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+
+    
+
+            <div class="inner-wrapper">
+                <div class="landscape"></div>
+            </div>
+            <div class="inner-wrapper">
+                    <div class="container">
+                            <div class="row">
+                                <div class="col s12 z-depth-5">
+                                    <h1 class="center-align">Key Request For Chuck Berry On Top</h1>
+                                    <div class="divider"></div>
+                                    <div class="divider"></div>
+                                    <form id="addUser">
+                                        <div class="row">
+                                            <div class="col s12">
+                    
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                    
+                                            <div class="col s4">
+                                                <!-- Promo Content 1 goes here -->
+                                                <h3>Code 1:</h3>
+                                                <input type="number" min="0" max="9" id="1" name="1" value="0">
+                                            </div>
+                                            <div class="col s4">
+                                                <!-- Promo Content 2 goes here -->
+                                                <h3>Code 2:</h3>
+                                                <input type="number" min="0" max="9" id="2" name="2" value="0">
+                                            </div>
+                                            <div class="col s4">
+                                                <!-- Promo Content 3 goes here -->
+                                                <h3>Code 3:</h3>
+                                                <input type="number" min="0" max="9" id="3" name="3" value="0">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                    
+                                            <span class="col s6">
+                                                <input id="adminKey" type="text" value="EnterAddCode">
+                                            </span>
+                                            <span class="col s6 ">
+                                                <input id="submit" type="submit" value="SubmitToDB" class="z-depth-3">
+                                            </span>
+                    
+                                        </div>
+                    
+                    
+                                    </form>
+                                </div>
+                            </div>
+                    
+                        </div>
+                </div>
+    
+    
+            <div class="nrw">
+                <span class="new">
+                    <span class="letter">T</span>
+                    <span class="letter">H</span>
+                    <span class="letter">E</span>
+                </span>
+                <span class="retro">
+                    <span class="letter">D</span>
+                    <span class="letter">R</span>
+                    <span class="letter">O</span>
+                    <span class="letter">P</span>
+                    <span class="letter">-</span>
+                    <span class="letter">O</span>
+                    <span class="letter">F</span>
+                    <span class="letter">F</span>
+                </span>
+                <span class="wave">
+                    <span class="letter">A</span>
+                    <span class="letter">P</span>
+                    <span class="letter">P</span>
+                </span>
+            </div>
+            <div class="triangle"></div>
+        </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzZp4A3mUd0IiVr_KMP-fTP0MdKt6O8nQ"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <script type="text/javascript" src="assets/javascript/login.js"> </script>
+    <script type="text/javascript" src="assets/javascript/db.js"></script>
+    <script type="text/javascript" src="assets/javascript/session.js"> </script>
+
+</body>
+
+</html>
