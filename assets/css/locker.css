@@ -119,3 +119,9 @@ button {
         box-shadow: 0 1px 0 0 #4db6ac!important;
         
  }
+
+ #right-panel {
+    z-index: 100 !important;
+    position:relative;
+    background-color: white;
+ }
