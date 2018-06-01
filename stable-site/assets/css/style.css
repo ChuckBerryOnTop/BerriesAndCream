@@ -113,7 +113,7 @@ transform: rotateX(85deg);
 }
  
 .nrw {
- z-index: -1;
+    z-index: -1;
 	margin-top: 250px;
 }
  
@@ -143,6 +143,7 @@ letter-spacing: -15px;
 transform: rotate(-10deg) skew(-20deg);
 margin-left: -100px;
 margin-bottom: -36px;
+z-index: 0
 }
 
 .new > .letter {
