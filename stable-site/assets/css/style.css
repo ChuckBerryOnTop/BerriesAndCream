@@ -64,6 +64,7 @@ top: 6.28px;
 li > a{
  color:#cf34da !important;
  font-family: 'Orbitron', sans-serif;
+ font-weight:bold;
 
 }
 
@@ -203,12 +204,12 @@ letter-spacing: -10px;
 transform: rotate(-3deg) skew(-3deg);
 }
 
-nav 
-{
-	color: #fff;
-background-color: #18191a;
-
+nav {
+    color: #fff;
+    background-color: #dfe4e8;
+    border-bottom: 5px solid #2780e757;
 }
+
 .btn{
 	background-color: #18191a;
 }
@@ -230,4 +231,9 @@ input[type=number].valid:not(.browser-default),
 input[type=password].valid:not(.browser-default){
 border-bottom: 1px solid rgb(37, 125, 228)!important;
 box-shadow: 0 1px 0 0 rgb(37, 125, 228)!important;
+}
+
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color:rgb(207, 52, 218);
 }
