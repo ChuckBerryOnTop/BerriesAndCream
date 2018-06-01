@@ -19,9 +19,7 @@ font-family: 'Orbitron', sans-serif;
 
 .weather, .icon {
 	color: #4db6ac;
-
 }
-
 
 nav{
 height: 90px;
@@ -67,7 +65,6 @@ li > a{
 
 }
 
-
 @font-face {
 font-family: OutRun;
 src: url("https://jackphilippi.com.au/cdn/fonts/outrun_future.otf") format("opentype");
@@ -75,9 +72,6 @@ src: url("https://jackphilippi.com.au/cdn/fonts/outrun_future.otf") format("open
 
 html, body {
 height: 100%;
-/* overflow: hidden; */
-
-
 }
  
 body {
@@ -149,6 +143,7 @@ transform: rotate(-10deg) skew(-20deg);
 margin-left: -100px;
 margin-bottom: -36px;
 }
+
 .new > .letter {
 -webkit-text-stroke: 2px #F4C6F4;
 margin-top: -8px;
@@ -168,6 +163,7 @@ animation: glow 2.5s linear infinite;
 	filter: drop-shadow(0 0 6px #CF33D9) drop-shadow(0 0 6px #CF33D9);
 }
 }
+
 .retro {
 font-size: 5.5em;
 font-weight: 800;
@@ -177,6 +173,7 @@ letter-spacing: -12px;
 transform: rotate(-10deg) skew(-10deg);
 margin-bottom: -20px;
 }
+
 .retro > .letter {
 display: inline-block;
 padding: 0 10px;
@@ -203,8 +200,7 @@ letter-spacing: -10px;
 transform: rotate(-3deg) skew(-3deg);
 }
 
-nav 
-{
+nav {
 	color: #fff;
 background-color: #18191a;
 
